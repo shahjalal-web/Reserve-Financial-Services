@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="relative max-w-3xl text-center space-y-6">
         
         {/* Heading */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold leading-snug md:leading-tight">
+        <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl md:text-5xl font-semibold leading-snug md:leading-tight">
           <span className="block text-yellow-400">Transforming Data and</span>
           <span className="block">
             Intelligence into Clarity,

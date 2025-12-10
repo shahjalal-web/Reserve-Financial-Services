@@ -4,14 +4,14 @@
 export default function Aboutus() {
   return (
     <section
-      id="aboutus"
       className="
-        relative w-full text-white
-        px-4 md:px-8 lg:px-16
-        pt-24 pb-20 md:pb-28
-        bg-[url('/images/Backgrounds/bg-about-png.png')]  /* same bg as home */
-        bg-top bg-no-repeat bg-cover
-      "
+    relative w-full text-white
+    px-4 md:px-8 lg:px-16
+    pt-24 pb-20 md:pb-28
+    bg-[url('/images/Backgrounds/about-mobile.png')]    /* default = mobile */
+    md:bg-[url('/images/Backgrounds/bg-about-png.png')] /* desktop/tablet */
+    bg-top bg-no-repeat bg-cover
+  "
     >
       <div className="max-w-6xl mx-auto md:py-24">
         {/* TOP: Insight That Matters */}
@@ -24,13 +24,32 @@ export default function Aboutus() {
         {/* 3 FEATURE CARDS */}
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {/* Card 1 */}
-          <div className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10 overflow-hidden">
+          <div
+            className="
+              group relative rounded-2xl border border-white/10
+              bg-white/5 backdrop-blur-sm p-6 shadow-lg
+              transition-transform duration-300
+              hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
+              active:-translate-y-2 active:border-yellow-400 active:bg-white/10
+              focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+              overflow-hidden touch-manipulation
+            "
+            tabIndex={0}
+          >
             {/* blue glow effect */}
-            <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+            <div
+              className="
+                absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
+                transition-all duration-500
+                group-hover:opacity-100
+                group-active:opacity-100
+                group-focus:opacity-100
+              "
+            ></div>
 
             <div className="relative mb-4 flex items-center gap-3">
               <div className="flex h-10 w-10 p-2 items-center justify-center rounded-full bg-[#FBF705] text-black font-semibold text-lg">
-                <img src={"/icons/icon_1.png"} />
+                <img src="/icons/icon_1.png" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold">
                 Technology-Driven
@@ -44,13 +63,32 @@ export default function Aboutus() {
           </div>
 
           {/* Card 2 */}
-          <div className="group relative rounded-2xl border border-cyan-400/40 bg-cyan-500/10 backdrop-blur-sm p-6 shadow-xl transition-transform duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10 overflow-hidden">
+          <div
+            className="
+              group relative rounded-2xl border border-cyan-400/40
+              bg-cyan-500/10 backdrop-blur-sm p-6 shadow-xl
+              transition-transform duration-300
+              hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
+              active:-translate-y-2 active:border-yellow-400 active:bg-white/10
+              focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+              overflow-hidden touch-manipulation
+            "
+            tabIndex={0}
+          >
             {/* blue glow effect */}
-            <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+            <div
+              className="
+                absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
+                transition-all duration-500
+                group-hover:opacity-100
+                group-active:opacity-100
+                group-focus:opacity-100
+              "
+            ></div>
 
             <div className="relative mb-4 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FBF705] text-black font-semibold text-lg">
-                <img src={"/icons/icon_2.png"} />
+                <img src="/icons/icon_2.png" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold">
                 Intelligence at Core
@@ -64,13 +102,32 @@ export default function Aboutus() {
           </div>
 
           {/* Card 3 */}
-          <div className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10 overflow-hidden">
+          <div
+            className="
+              group relative rounded-2xl border border-white/10
+              bg-white/5 backdrop-blur-sm p-6 shadow-lg
+              transition-transform duration-300
+              hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
+              active:-translate-y-2 active:border-yellow-400 active:bg-white/10
+              focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+              overflow-hidden touch-manipulation
+            "
+            tabIndex={0}
+          >
             {/* blue glow effect */}
-            <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+            <div
+              className="
+                absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
+                transition-all duration-500
+                group-hover:opacity-100
+                group-active:opacity-100
+                group-focus:opacity-100
+              "
+            ></div>
 
             <div className="relative mb-4 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FBF705] text-black font-semibold text-lg">
-                <img src={"/icons/icon_3.png"} />
+                <img src="/icons/icon_3.png" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold">
                 Disciplined Trading
@@ -84,7 +141,7 @@ export default function Aboutus() {
         </div>
 
         {/* ABOUT US TEXT BLOCK */}
-        <div className="mt-16 md:my-64 max-w-3xl mx-auto text-center space-y-5">
+        <div className="mt-16 md:my-64 max-w-3xl mx-auto text-center space-y-5" id="aboutus">
           <span className="inline-block rounded-full border border-yellow-400/70 px-5 py-3 text-[20px] font-bold uppercase tracking-[0.25em] text-yellow-300">
             About Us
           </span>
@@ -103,17 +160,26 @@ export default function Aboutus() {
             operations.
           </p>
 
-          <div className="mt-44 h-px w-full mx-auto bg-white/40" />
+          <div className="mt-24 md:mt-44 h-px w-full mx-auto bg-white/40" />
         </div>
 
         {/* OUR VISION SECTION */}
         <div className="mt-16 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
-          {/* Vision text cards */}
+          {/* Vision + Mission */}
           <div className="space-y-8">
             {/* Vision card */}
-            <div className="group">
+            <div className="group" tabIndex={0}>
               <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border">
-                <div className="rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]">
+                <div
+                  className="
+                    rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm
+                    transition-all duration-300
+                    group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-active:bg-black/80 group-active:-translate-y-1 group-active:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-focus:bg-black/80 group-focus:-translate-y-1 group-focus:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    touch-manipulation
+                  "
+                >
                   <div className="space-y-3">
                     <h3 className="text-2xl md:text-4xl text-yellow-300">
                       Our Vision
@@ -129,9 +195,18 @@ export default function Aboutus() {
             </div>
 
             {/* Mission card */}
-            <div className="group">
+            <div className="group" tabIndex={0}>
               <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border">
-                <div className="rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]">
+                <div
+                  className="
+                    rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm
+                    transition-all duration-300
+                    group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-active:bg-black/80 group-active:-translate-y-1 group-active:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-focus:bg-black/80 group-focus:-translate-y-1 group-focus:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    touch-manipulation
+                  "
+                >
                   <div className="space-y-3">
                     <h3 className="text-2xl md:text-4xl text-yellow-300">
                       Our Mission

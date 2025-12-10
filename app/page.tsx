@@ -1,4 +1,3 @@
-import Hero from "../app/components/home"
 import CoreArchitecturePage from "../app/components/home"
 import Aboutus from "../app/components/aboutus"
 import WhatWeDo from "../app/components/whatwedo"
