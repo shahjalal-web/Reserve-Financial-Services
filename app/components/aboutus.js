@@ -114,8 +114,8 @@ export default function Aboutus() {
     pt-24 md:pt-32
     pb-20 md:pb-28
 
-    bg-[url('/images/backgrounds/About-mobile.png')]
-    md:bg-[url('/images/backgrounds/About.png')]
+    bg-[url('/images/About-mobile.png')]
+    md:bg-[url('/images/About.png')]
 
     bg-center bg-no-repeat
     bg-contain md:bg-cover
