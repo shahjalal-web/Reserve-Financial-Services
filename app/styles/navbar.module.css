@@ -1,0 +1,193 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 60px;
+  background-color: #02000E;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logoLink {
+  display: inline-block;
+}
+
+.logoImage {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+.v {
+  color: #f9d71c;
+}
+
+.tagline {
+  font-size: 16px;
+  color: #e0e0e0;
+  margin-top: 4px;
+}
+
+/* Desktop nav links (default: desktop-first) */
+.navLinks {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.link {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  color: #f9d71c;
+}
+
+.active {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  color: #f9d71c;
+  font-weight: 600;
+}
+
+/* Hamburger hidden by default (only mobile/tablet show) */
+.hamburger {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  display: none;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Close button + wrapper: hidden on desktop */
+.closeItem {
+  display: none;
+}
+
+.closeBtn {
+  display: none;
+}
+
+/* ========== MOBILE & TABLET (<= 1024px) ========== */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 25px 25px;
+  }
+
+  /* Show hamburger on mobile/tablet */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1200;
+  }
+
+  /* Turn nav links into a hidden left sidebar */
+  .navLinks {
+    position: fixed;
+    top: 0;
+    left: -260px;                /* hidden state */
+    height: 100vh;
+    width: 260px;                /* width of sidebar */
+    background: linear-gradient(#11426d 17%, #032942 63%, #122650);
+    flex-direction: column;
+    justify-content: flex-end;   /* bottom of sidebar */
+    align-items: flex-start;
+    padding-bottom: 180px;
+    padding-left: 30px;
+    gap: 40px;
+    transition: left 0.35s ease;
+    list-style: none;
+    z-index: 2000;
+  }
+
+  /* Open state (when .open class added) */
+  .navLinks.open {
+    left: 0;
+  }
+
+  /* Each link in sidebar */
+  .link {
+    padding: 15px 0;
+    font-size: 25px;
+  }
+
+  /* Close button list item is visible on small screens */
+  .closeItem {
+    display: block;
+    width: 100%;
+  }
+
+  /* Close button (✕) visible and positioned at top-right of sidebar */
+  .closeBtn {
+    display: block;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Remove any desktop-style li borders */
+  .navLinks li {
+    width: 100%;
+    border: none;
+  }
+}
+
+/* ========== EXTRA SMALL (<= 376px) ========== */
+@media (max-width: 376px) {
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+  }
+
+  .navLinks {
+    padding-bottom: 120px;
+    padding-left: 30px;
+    gap: 30px;
+  }
+
+  .link {
+    padding: 8px 0;
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+  }
+
+  .link:hover {
+    color: #FFE400;
+  }
+
+  .active {
+    color: #FFE400;
+    font-weight: 600;
+  }
+
+  .closeBtn {
+    font-size: 30px;
+  }
+}

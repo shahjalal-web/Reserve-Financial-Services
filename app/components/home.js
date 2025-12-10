@@ -1,0 +1,38 @@
+// components/home.js
+export default function Hero() {
+  return (
+    <section
+      id="home"
+      className="relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/backgrounds/bg-hero.png')] bg-top bg-no-repeat bg-cover
+      "
+    >
+      <div className="relative max-w-3xl text-center space-y-6">
+        
+        {/* Heading */}
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold leading-snug md:leading-tight">
+          <span className="block text-yellow-400">Transforming Data and</span>
+          <span className="block">
+            Intelligence into Clarity,
+          </span>
+          <span className="block">Risk into Control</span>
+        </h1>
+
+        {/* Paragraph */}
+        <p className="text-xs sm:text-sm md:text-lg font-light text-gray-100 leading-relaxed">
+          Reserve Financial Services Ltd combines technology, data, and
+          discipline to support internal trading decisions. We trade solely with
+          company capital, guided by research and innovation.
+        </p>
+
+        {/* Button */}
+        <div className="pt-4">
+          <button className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-xs sm:text-sm md:text-base font-medium bg-yellow-400 hover:bg-yellow-300 text-black shadow-lg shadow-yellow-500/40 transition">
+            Learn More About Us
+            <span className="text-lg">→</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
+}

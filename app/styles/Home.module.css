@@ -1,0 +1,446 @@
+.heroSection {
+  position: relative;
+  /* height: 110vh; */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* overflow: hidden; */
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.title {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.title span {
+  color: #fff200;
+}
+
+.subtitle {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.learnButton {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  margin-top: 40px;
+  background: #fff200;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.learnButton:hover {
+  background: #ffea00;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+}
+
+
+.insightSection {
+  padding: 5px 10px 22px 10px;
+  color: white;
+  text-align: center;
+  
+}
+
+.insightTitle {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+
+.insightGrid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* .insightCard,
+.insightCardCore {
+  border-radius: 15px;
+  padding: 40px 30px;
+  max-width: 320px;
+  flex: 1 1 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+.insightCardCore {
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 320px;
+  flex: 1 1 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  
+} */
+
+
+.insightCard,
+.insightCardCore {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px;
+  /* max-width: 320px; */
+  flex: 1 1 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.insightCard::before,
+.insightCardCore::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%) scale(0.5);
+  background: radial-gradient(circle, rgba(0, 174, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+
+.insightCard:hover::before,
+.insightCardCore:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.insightCard:hover,
+.insightCardCore:hover {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateY(-6px);
+  border-color: rgb(250, 238, 238);
+  /* border-color: rgba(0, 180, 255, 0.6); */
+  /* box-shadow: 0 0 25px rgba(0, 180, 255, 0.4); */
+}
+
+
+.insightCard > *,
+.insightCardCore > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.iconWrapper {
+  background: yellow;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: black;
+}
+
+.iconImage {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cardText {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #eee;
+}
+
+
+@media (max-width: 1280px) {
+  .heroSection {
+    padding-top: 300px;
+    padding-bottom: 200px;
+    background-image: url('/images/Backgrounds/bg-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .learnButton {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+  }
+
+  .insightSection {
+    padding: 80px 30px 180px 30px;
+    background-image: url('/images/Backgrounds/bg-insightmatters-png.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+
+  /* .insightCard,
+  .insightCardCore {
+    max-width: 280px;
+    padding: 35px 25px;
+  } */
+  .insightGrid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow-x: unset;
+  padding-bottom: 0;
+}
+
+.insightCard,
+.insightCardCore {
+  max-width: 31%;     
+  min-width: 100px;
+  max-width: 320px;
+  flex: 1 1 200px;
+}
+
+.insightCard::before,
+.insightCardCore::before {
+  
+  transform: translate(-50%, -50%) scale(0.5);
+  background: radial-gradient(circle, rgba(0, 174, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+
+.insightCard:hover::before,
+.insightCardCore:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.insightCard:hover,
+.insightCardCore:hover {
+  background: radial-gradient(circle, rgba(0, 174, 255, 0.4) 0%, transparent 70%);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateY(-6px);
+  border-color: rgb(250, 238, 238);
+  /* border-color: rgba(0, 180, 255, 0.6); */
+  /* box-shadow: 0 0 25px rgba(0, 180, 255, 0.4); */
+}
+
+}
+
+/* ========== Tablet ≤768px ========== */
+
+/* @media (max-width: 769px)   {
+  .heroSection {
+    padding-top: 180px;
+    padding-bottom: 90px;
+    background-image: url('/images/Tablet/Banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .title {
+    font-size: 2.1rem;
+    padding: 0 10px;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    padding: 0 70px;
+  }
+
+  .learnButton {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+
+  .insightSection {
+    background-image: url('/images/Tablet/Insight that matters.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px 120px 20px;
+  }
+
+
+   .insightGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+  .insightCard,
+  .insightCardCore {
+    flex: 1 1 28%;      
+    max-width: 31%;    
+    min-width: 100px;   
+    box-sizing: border-box;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .cardText {
+    font-size: 0.8rem;
+  }
+} */
+
+
+@media (max-width: 400px) {
+  .insightSection {
+    padding: 2rem 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .insightTitle {
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .insightGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 0 1rem 1rem 0;
+    padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+  }
+
+  /* Hide scrollbar */
+  .insightGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each card takes 45% width to show 2 full + 10% of 3rd */
+  .insightCard {
+    flex: 0 0 45% !important;
+    min-width: 45% !important;
+    max-width: 45% !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure content inside cards wraps properly */
+  .iconWrapper,
+  .cardTitle,
+  .cardText {
+    width: 100%;
+  }
+
+  .cardText {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* For slightly larger mobile screens (401px to 768px) */
+@media (min-width: 401px) and (max-width: 768px) {
+  .insightSection {
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  .insightGrid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 0 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    
+  }
+
+  .insightGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insightCard {
+    flex: 0 0 45% !important;
+    min-width: 45% !important;
+    scroll-snap-align: start;
+  }
+}

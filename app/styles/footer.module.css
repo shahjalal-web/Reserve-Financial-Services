@@ -1,0 +1,454 @@
+/* .footer {
+  background: linear-gradient(180deg, #000000, #0a0a15);
+  color: white;
+  padding: 60px 80px 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #02000E;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+
+.logoSection {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logoImage {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.v {
+  color: #f9d71c; 
+}
+
+.tagline {
+  font-size: 16px;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.socials p {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif; 
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 50px;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.icons svg {
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icons svg:hover {
+  color: #f9d71c;
+}
+
+
+.linksSection {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.linksSection {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  flex-wrap: nowrap; 
+  width: 100%;
+}
+
+.linksSection h4 {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.linksSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linksSection li {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #d6d6d6;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.linksSection li:hover {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  color: #f9d71c;
+  cursor: pointer;
+}
+
+
+.contact li {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+
+.bottomBar {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.bottomBar hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+
+.bottomBar p {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.bottomBar span {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 500;
+} */
+.footer {
+  color: white;
+  padding: 100px 80px 80px 80px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* background-color: #02000E; */
+  background-image: url('/images/Backgrounds/bg-footer-png.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+/* --- Top Section Layout --- */
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* --- Logo and Socials --- */
+.logoSection {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logoLink {
+  display: inline-block;
+}
+.logoImage {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+.socials p {
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+.icons {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+}
+.icons svg {
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.icons svg:hover {
+  color: #f9d71c;
+}
+
+/* --- Links Section --- */
+.linksSection {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+/* .linksSection {
+  flex-wrap: nowrap;
+} */
+.linksSection > div {
+  min-width: 160px;
+}
+
+
+/* Column Headings */
+.linksSection h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.linksSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linksSection li {
+  font-size: 15px;
+  color: #d6d6d6;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.linksSection li:hover {
+  color: #f9d71c;
+  cursor: pointer;
+}
+
+/* Contact section adjustment */
+.contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+/* --- Bottom Bar --- */
+.bottomBar {
+  text-align: center;
+  margin-top: 40px;
+}
+.bottomBar hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+.bottomBar p {
+  font-size: 15px;
+  color: #ccc;
+}
+.bottomBar span {
+  color: #fff;
+  font-weight: 500;
+}
+
+
+
+@media (max-width: 768px) and (min-width: 377px) {
+  .footer {
+    padding: 48px 25px 80px 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 18px;
+    background-image: url('/images/Tablet/Footer.png');
+    background-size: cover;
+    /* background-size: 768px 740px; */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .logoSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    order: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 14px;
+    margin-bottom: 0px;
+  }
+  .socials {
+  justify-content: flex-end; /* keep on right side */
+  padding-right: 100px; /* add some right padding to shift left a bit */
+  /* margin-right: auto; gives space on right side */
+  max-width: fit-content; /* shrink width to content */
+  margin-top: -20px;
+}
+  .icons {
+    gap: 12px;
+    font-size: 30px;
+  }
+  .linksSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 8px;
+    padding: 15px 0 15px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    order: 2;
+    width: 100%;
+  }
+  .linksSection > div {
+    width: 45%;
+    min-width: 160px;
+  }
+  .linksSection > div:nth-child(3) {
+    flex: 1 0 100%;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+    order: 3;
+  }
+  .getInTouchRow,
+  .linksSection > div:nth-child(3) {
+    width: 100%;
+  }
+  .linksSection h4 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .linksSection ul,
+  .contact ul {
+    font-size: 30px;
+  }
+  .linksSection li,
+  .contact li {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .bottomBar {
+    margin-top: 15px;
+  }
+  .bottomBar hr {
+    margin-bottom: 15px;
+  }
+  .bottomBar p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 376px) {
+  .footer {
+    padding: 38px 10px 70px 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 14px;
+    background-image: url('/images/mobile/Footer.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .logoSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    order: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  .socials {
+    margin-top: -40px;
+    align-items: flex-end;
+    text-align: left;
+  }
+  .icons {
+    gap: 8px;
+    font-size: 20px;
+  }
+
+  .linksSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 5px;
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    order: 2;
+    width: 100%;
+  }
+  .linksSection > div {
+    width: 48%;
+    min-width: 130px;
+  }
+  .linksSection > div:nth-child(3) {
+    flex: 1 0 100%;
+    width: 100%;
+    margin-top: 6px;
+    border-top: 1px dashed rgba(255,255,255,0.045);
+    padding-top: 4px;
+    order: 3;
+  }
+  .getInTouchRow, .linksSection > div:nth-child(3) {
+    width: 100%;
+  }
+
+  .linksSection h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .linksSection ul, .contact ul {
+    font-size: 13px;
+  }
+  .linksSection li, .contact li {
+    font-size: 12.3px;
+    line-height: 1.45;
+    margin-bottom: 4px;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .bottomBar {
+    margin-top: 10px;
+  }
+  .bottomBar hr {
+    margin-bottom: 10px;
+  }
+  .bottomBar p {
+    font-size: 12px;
+  }
+}

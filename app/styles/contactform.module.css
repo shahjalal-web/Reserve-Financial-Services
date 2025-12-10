@@ -1,0 +1,431 @@
+.container {
+  /* max-width: 900px; */
+  scroll-margin-top: 60px;
+  margin: 0 auto 0 auto;
+  padding: 50px 200px 50px 200px;
+  color: white;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-image: url('/images/Backgrounds/bg-form-png.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.team {
+  color: #ffe600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.row {
+  display: flex;
+  
+}
+
+.inputGroup {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup input,
+.textarea,
+.countryCode,
+.phoneInput {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  background: transparent;
+  border: 1.6px solid #3c414f;
+  border-radius: 7px;
+  padding: 11px 15px;
+  font-size: 1.04rem;
+  color: white;
+  font-family: inherit;
+  margin-bottom: 0;
+  outline: none;
+  width: 100%;
+  width: 400px;
+  height: 80px;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 10px #1c2744a7;
+}
+
+.inputEmailphone input {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  background: transparent;
+  border: 1.6px solid #3c414f;
+  border-radius: 7px;
+  padding: 11px 15px;
+  font-size: 1.04rem;
+  color: white;
+  font-family: inherit;
+  margin-bottom: 0;
+  outline: none;
+  width: 100%;
+  width: 830px;
+  height: 80px;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 10px #1c2744a7;
+}
+
+.inputGroup input:focus,
+.textarea:focus,
+.inputEmailphone input:focus,
+.countryCode:focus {
+  border-color: #20EAFE;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 150px;
+  width: 835px;
+  background: rgba(13,17,30,0.55);
+  border: 1.6px solid #3c414f;
+  color: #fff;
+}
+
+/* .phoneBox {
+  display: flex;
+  position: relative;
+  align-items: center;
+} */
+
+/* .countryCode {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  min-width: 76px;
+  max-width: 85px;
+  height: 80px;
+  background: rgba(13,17,30,0.85);
+  border: 1.6px solid #3c414f;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 7px 0 0 7px;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  top: 0;
+} */
+
+/* .phoneInput {
+  padding-left: 95px;
+} */
+
+/* Container around PhoneInput */
+/* Make phone input box match the email field width and dark bg */
+.phoneContainer {
+  width: 100%;
+  background: transparent !important;
+}
+
+.phoneContainer .react-tel-input {
+  width: 100%;
+}
+
+/* Dropdown (flag + code) – narrower */
+.countryCode {
+  background: transparent !important;
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+}
+
+
+/* Override library input style */
+.phoneInput {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif !important;
+  background: transparent !important;
+  border: 1.6px solid #3c414f !important;
+  border-radius: 7px !important;
+  padding: 11px 15px 11px 45px !important; /* 60 (dropdown) + 15 gap */
+  font-size: 1.04rem !important;
+  color: #fff !important;
+  width: 100% !important;
+  height: 80px !important;
+  outline: none !important;
+}
+
+.phoneContainer :global(.flag-dropdown),
+.phoneContainer :global(.flag-dropdown:hover),
+.phoneContainer :global(.flag-dropdown.open) {
+  background: transparent !important;
+  border: 1px solid #3c414f !important;
+  
+}
+
+/* country list and hovered/selected rows */
+.phoneContainer :global(.country-list) {
+  background: #02000E!important; /* dropdown panel; adjust if needed */
+  border: 1px solid #3c414f !important;
+}
+.phoneContainer :global(.country.highlight),
+.phoneContainer :global(.country:hover) {
+  background: transparent !important; /* no white highlight */
+}
+.phoneContainer :global(.flag) {
+  transform: scale(1.3);        /* 1.0 = default, 1.2 = 20% bigger */
+  transform-origin: center; 
+  
+}
+.phoneContainer :global(.country:hover),
+.phoneContainer :global(.country.highlight) {
+  background: transparent !important;
+}
+/* Selected flag button (the visible flag box) */
+.phoneContainer :global(.selected-flag),
+.phoneContainer :global(.selected-flag:hover),
+.phoneContainer :global(.selected-flag:focus),
+.phoneContainer :global(.selected-flag:active) {
+  background: transparent !important;
+}
+
+/* The outer flag dropdown container */
+.phoneContainer :global(.flag-dropdown),
+.phoneContainer :global(.flag-dropdown:hover),
+.phoneContainer :global(.flag-dropdown.open) {
+  background: transparent !important;
+  border: 1px solid #3c414f !important;
+}
+
+/* Whole phone input wrapper */
+.phoneContainer :global(.react-tel-input),
+.phoneContainer :global(.react-tel-input:hover),
+.phoneContainer :global(.react-tel-input:focus-within) {
+  background: transparent !important;
+}
+
+
+
+
+
+
+.checkboxGroup {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  margin: 13px 0 2px 0;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: #eaeaea;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #ffe600;
+  margin-top: 2px;
+}
+
+.submitBtn {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  margin: 26px auto 120px auto;
+  width: 830px;
+  padding: 14px 0;
+  background: #ffe600;
+  border: none;
+  border-radius: 11px;
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 5px 32px #ffe60024;
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+  background: #fff200;
+  transform: translateY(-2px);
+}
+
+.inputGroup :global(input::placeholder),
+.inputGroup :global(textarea::placeholder),
+.inputEmailphone :global(input::placeholder)  
+{
+  color: #fff;
+  
+}
+
+.required::-webkit-input-placeholder:after {
+    content:'*';
+    color: red;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.formStatus {
+  margin-top: 15px;
+  font-weight: 600;
+  /* text-align: center; */
+  color: red; 
+}
+
+@media (max-width: 1280px) {
+  .container {
+  padding: 100px 200px;
+  background-image: url('/images/Backgrounds/bg-form-png.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+
+   .heading {
+    font-size: 2.5rem;
+    line-height: 2.2rem;
+  }
+
+  .inputEmailphone input,
+  .submitBtn,
+  .textarea {
+    width: 100%;
+  }
+ 
+
+  .row {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .inputGroup input {
+    width: 100%;
+  } 
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-image: url('/images/Tablet/Contact Us.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+  .inputGroup input,
+.textarea,
+.countryCode,
+.phoneInput {
+  /* remove fixed widths here */
+  width: 100%;
+  height: 80px;
+}
+
+.inputEmailphone input {
+  width: 100%;
+  height: 80px;
+}
+
+.textarea {
+  width: 100%;
+}
+.submitBtn {
+  width: 100%;
+}
+
+
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .row {
+    flex-direction: row;   
+    gap: 16px;
+  }
+
+
+
+  .countryCode {
+    height: 70px;
+    min-width: 70px;
+  }
+
+  /* .phoneInput {
+    padding-left: 80px;
+    height: 70px;
+  } */
+
+  /* .textarea {
+    min-height: 130px;
+  } */
+  
+}
+
+
+
+
+
+@media (max-width: 376px) {
+  .container {
+    padding: 30px 20px;
+    background-image: url('/images/mobile/Speak to our team.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 18px; 
+  }
+
+  .inputGroup input,
+  .inputEmailphone input,
+  .textarea,
+  .submitBtn {
+    width: 100%;
+    height: 60px;
+    font-size: 0.95rem;
+  }
+
+  .countryCode {
+    height: 60px;
+    min-width: 60px;
+    font-size: 1rem;
+  }
+
+  /* .phoneInput {
+    padding-left: 70px;
+  } */
+
+  .textarea {
+    min-height: 110px;
+  }
+
+  .checkboxGroup {
+    font-size: 0.85rem;
+  }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  .submitBtn {
+    font-size: 1rem;
+    margin-bottom: 60px;
+  }
+}
+
