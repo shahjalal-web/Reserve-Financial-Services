@@ -1,19 +1,25 @@
-// components/home.js
+import { Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // choose what you need
+  display: "swap",
+});
+
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/backgrounds/bg-hero.png')] bg-top bg-no-repeat bg-cover
-      "
+      className={`${manrope.className} relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/backgrounds/bg-hero.png')] bg-top bg-no-repeat bg-cover
+      `}
     >
       <div className="relative max-w-3xl text-center space-y-6">
-        
         {/* Heading */}
         <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl md:text-5xl font-semibold leading-snug md:leading-tight">
-          <span className="block text-yellow-400">Transforming Data and</span>
-          <span className="block">
-            Intelligence into Clarity,
+          <span className="block text-[#FBF705] font-manrope">
+            Transforming Data and
           </span>
+          <span className="block">Intelligence into Clarity,</span>
           <span className="block">Risk into Control</span>
         </h1>
 
@@ -26,12 +32,11 @@ export default function Hero() {
 
         {/* Button */}
         <div className="pt-4">
-          <button className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-xs sm:text-sm md:text-base font-medium bg-yellow-400 hover:bg-yellow-300 text-black shadow-lg shadow-yellow-500/40 transition">
+          <button className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-xs sm:text-sm md:text-base font-medium bg-[#FBF705] hover:bg-[#ddd900] text-black shadow-lg shadow-yellow-500/40 transition">
             Learn More About Us
             <span className="text-lg">→</span>
           </button>
         </div>
-
       </div>
     </section>
   );

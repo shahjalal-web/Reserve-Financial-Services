@@ -88,8 +88,8 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(item.id, e)}
               className={`text-[18px] transition-all duration-300 ${
                 activeLink === item.id
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white hover:text-yellow-400"
+                  ? "text-[#FBF705] font-semibold"
+                  : "text-white hover:text-[#FBF705]"
               }`}
             >
               {item.label}

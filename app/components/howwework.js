@@ -1,4 +1,17 @@
 import Image from "next/image";
+import { DM_Sans, Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"], // choose what you need
+  display: "swap",
+});
+
+const dm = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500"], // choose what you need
+  display: "swap",
+});
 
 export default function HowWeWork() {
   return (
@@ -8,16 +21,16 @@ export default function HowWeWork() {
         relative w-full text-white
         px-4 md:px-8 lg:px-16
         py-20 md:py-24
-        bg-[url('/images/backgrounds/bg-howwework-png.png')] bg-top bg-cover bg-no-repeat
+        bg-[url('/images/backgrounds/bg-howwework-png.png')]
       "
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         {/* Heading + intro text */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h2 className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}>
             How <span className="text-yellow-400">we work</span>
           </h2>
-          <p className="text-xs sm:text-sm md:text-base leading-relaxed text-gray-100">
+          <p className={`${dm.className}text-xs md:text-[25px] leading-relaxed text-gray-100`}>
             At Reserve Financial Services Ltd, our approach is grounded in
             discipline, research, and technology. We integrate market expertise
             with in-house analytics to guide internal trading decisions. This
@@ -59,34 +72,39 @@ export default function HowWeWork() {
 function WorkCard({ title, text, image }) {
   return (
     <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]">
+      
       {/* blue glow on hover */}
       <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="absolute inset-0 bg-cyan-500/15 blur-2xl" />
       </div>
 
-      {/* content */}
-      <div className="relative flex flex-col h-full">
-        <div className="px-6 pt-5 pb-3">
-          <h3 className="text-lg md:text-xl font-semibold text-yellow-300">
+      {/* content wrapper with equal padding */}
+      <div className="relative flex flex-col h-full px-6 pt-5 pb-6">
+        
+        {/* Text */}
+        <div>
+          <h3 className={`${dm.className} text-lg md:text-[28px] text-yellow-300`}>
             {title}
           </h3>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-gray-100 leading-relaxed">
+          <p className={`${dm.className} mt-2 text-xs md:text-[20px] text-gray-100 leading-relaxed`}>
             {text}
           </p>
         </div>
 
-        {/* image area */}
-        <div className="relative mt-2 h-64 sm:h-44 md:h-96 overflow-hidden">
+        {/* Image container with SAME side padding */}
+        <div className="relative mt-6 h-64 sm:h-48 md:h-72 overflow-hidden rounded-xl">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
           />
-          {/* top gradient to blend with text */}
+
+          {/* gradient overlay */}
           <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/40 to-transparent" />
         </div>
       </div>
     </div>
   );
 }
+

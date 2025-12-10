@@ -2,7 +2,19 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { DM_Sans, Manrope } from "next/font/google";
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"], // choose what you need
+  display: "swap",
+});
+
+const dm = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500"], // choose what you need
+  display: "swap",
+});
 const COUNTRIES = [
   { name: "Afghanistan", dialCode: "+93", flag: "🇦🇫" },
   { name: "Albania", dialCode: "+355", flag: "🇦🇱" },
@@ -214,19 +226,16 @@ export default function ContactForm() {
       <div className="max-w-3xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-10 space-y-2">
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h2 className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}>
             Speak with <span className="text-yellow-400">Our Team</span>
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-100">
-            Share a few details with us and our team will get back to you soon.
-          </p>
         </div>
 
         {/* Form */}
         <form className="space-y-5" onSubmit={handleSubmit}>
           {/* First + Last Name */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FieldWrapper required>
+            <FieldWrapper>
               <input
                 type="text"
                 value={form.firstName}
@@ -243,7 +252,7 @@ export default function ContactForm() {
               )}
             </FieldWrapper>
 
-            <FieldWrapper required>
+            <FieldWrapper>
               <input
                 type="text"
                 value={form.lastName}
@@ -260,7 +269,7 @@ export default function ContactForm() {
           </div>
 
           {/* Email */}
-          <FieldWrapper required>
+          <FieldWrapper>
             <input
               type="email"
               value={form.email}
@@ -276,7 +285,7 @@ export default function ContactForm() {
           </FieldWrapper>
 
           {/* Phone with country selector */}
-          <FieldWrapper required>
+          <FieldWrapper>
             <div className="flex items-center gap-2 bg-black/40 border border-white/20 rounded-md px-2 py-2 focus-within:border-yellow-400 focus-within:bg-black/60">
               {/* Country selector */}
               <div className="relative" ref={dropdownRef}>
@@ -355,7 +364,7 @@ export default function ContactForm() {
           </FieldWrapper>
 
           {/* Message */}
-          <FieldWrapper required>
+          <FieldWrapper>
             <textarea
               rows={4}
               value={form.message}
