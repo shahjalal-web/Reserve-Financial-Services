@@ -15,7 +15,7 @@ export default function Footer() {
     <footer
       className="
         relative w-full text-white
-        bg-[url('/images/Backgrounds/footer.png')]
+        bg-[url('/images/backgrounds/footer.png')]
         bg-top bg-cover bg-no-repeat
       "
     >

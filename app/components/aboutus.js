@@ -17,8 +17,6 @@ const dm = DM_Sans({
   display: "swap",
 });
 
-
-
 const featureCards = [
   {
     id: 1,
@@ -70,14 +68,9 @@ const featureCards = [
   },
 ];
 
-function FeatureCard({
-  title,
-  icon,
-  description,
-  wrapperClass,
-}) {
+function FeatureCard({ title, icon, description, wrapperClass }) {
   return (
-    <div className={wrapperClass} tabIndex={0}>
+    <div className={`${wrapperClass} w-full`} tabIndex={0}>
       <div
         className="
           absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
@@ -93,7 +86,7 @@ function FeatureCard({
         </div>
         <h3 className="text-xl md:text-2xl font-semibold mt-4">{title}</h3>
       </div>
-      <p className="relative text-xl text-gray-100 leading-relaxed">
+      <p className="relative text-xl text-center md:text-left text-gray-100 leading-relaxed">
         {description}
       </p>
     </div>
@@ -108,8 +101,8 @@ export default function Aboutus() {
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) =>
-      (prev - 1 + featureCards.length) % featureCards.length
+    setActiveIndex(
+      (prev) => (prev - 1 + featureCards.length) % featureCards.length
     );
   };
 
@@ -121,8 +114,8 @@ export default function Aboutus() {
     pt-24 md:pt-32
     pb-20 md:pb-28
 
-    bg-[url('/images/Backgrounds/About-mobile.png')]
-    md:bg-[url('/images/Backgrounds/About.png')]
+    bg-[url('/images/backgrounds/About-mobile.png')]
+    md:bg-[url('/images/backgrounds/About.png')]
 
     bg-center bg-no-repeat
     bg-contain md:bg-cover
@@ -131,44 +124,49 @@ export default function Aboutus() {
       <div className="max-w-6xl mx-auto md:py-24">
         {/* TOP: Insight That Matters */}
         <div className="text-center space-y-3">
-          <p className={`${manrope.className} text-xs md:text-6xl text-gray-200`}>
+          <p
+            className={`${manrope.className} text-xs md:text-6xl text-gray-200`}
+          >
             Insight That Matters
           </p>
         </div>
 
         {/* ---- MOBILE: CAROUSEL VIEW ---- */}
-        <div className="mt-10 md:hidden relative flex items-center gap-3">
-          {/* Left button */}
+        {/* ---- MOBILE: CAROUSEL VIEW ---- */}
+        <div className="mt-10 md:hidden relative">
+          {/* Active card – full width */}
+          <div className="w-full overflow-hidden">
+            <FeatureCard {...featureCards[activeIndex]} />
+          </div>
+
+          {/* Left button - overlay on top of card */}
           <button
             type="button"
             onClick={handlePrev}
             className="
-              shrink-0 h-10 w-10 rounded-full border border-white/30
-              bg-black/40 backdrop-blur-sm
-              flex items-center justify-center
-              text-sm font-semibold
-              active:scale-95
-            "
+      absolute left-2 top-1/2 -translate-y-1/2
+      h-10 w-10 rounded-full border border-white/30
+      bg-black/60 backdrop-blur-sm
+      flex items-center justify-center
+      text-sm font-semibold
+      active:scale-95
+    "
           >
             ‹
           </button>
 
-          {/* Active card */}
-          <div className="flex-1 overflow-hidden h-[500px]">
-            <FeatureCard {...featureCards[activeIndex]} />
-          </div>
-
-          {/* Right button */}
+          {/* Right button - overlay on top of card */}
           <button
             type="button"
             onClick={handleNext}
             className="
-              shrink-0 h-10 w-10 rounded-full border border-white/30
-              bg-black/40 backdrop-blur-sm
-              flex items-center justify-center
-              text-sm font-semibold
-              active:scale-95
-            "
+      absolute right-2 top-1/2 -translate-y-1/2
+      h-10 w-10 rounded-full border border-white/30
+      bg-black/60 backdrop-blur-sm
+      flex items-center justify-center
+      text-sm font-semibold
+      active:scale-95
+    "
           >
             ›
           </button>
@@ -204,7 +202,9 @@ export default function Aboutus() {
             About Us
           </span>
 
-          <h2 className={`${manrope.className} text-2xl sm:text-3xl md:text-6xl leading-snug`}>
+          <h2
+            className={`${manrope.className} text-2xl sm:text-3xl md:text-6xl leading-snug`}
+          >
             We are Committed,
             <br className="hidden sm:block" /> Focused and Disciplined
           </h2>
@@ -239,7 +239,9 @@ export default function Aboutus() {
                   "
                 >
                   <div className="space-y-3">
-                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}>
+                    <h3
+                      className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}
+                    >
                       Our Vision
                     </h3>
                     <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">
@@ -266,7 +268,9 @@ export default function Aboutus() {
                   "
                 >
                   <div className="space-y-3">
-                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}>
+                    <h3
+                      className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}
+                    >
                       Our Mission
                     </h3>
                     <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">

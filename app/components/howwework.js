@@ -21,7 +21,7 @@ export default function HowWeWork() {
         relative w-full text-white
         px-4 md:px-8 lg:px-16
         py-20 md:py-24
-        bg-[url('/images/Backgrounds/bg-howwework-png.png')]
+        bg-[url('/images/backgrounds/bg-howwework-png.png')]
       "
     >
       <div className="max-w-[1200px] mx-auto">

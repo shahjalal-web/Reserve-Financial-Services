@@ -22,7 +22,7 @@ export default function WhatWeDo() {
         relative w-full text-white
         px-4 md:px-8 lg:px-16
         md:py-24
-        bg-[url('/images/Backgrounds/bg-whatwedo-png.png')]
+        bg-[url('/images/backgrounds/bg-whatwedo-png.png')]
         bg-top bg-no-repeat bg-cover
       "
     >
