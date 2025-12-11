@@ -125,7 +125,7 @@ export default function Aboutus() {
         {/* TOP: Insight That Matters */}
         <div className="text-center space-y-3">
           <p
-            className={`${manrope.className} text-xs md:text-6xl text-gray-200`}
+            className={`${manrope.className} text-3xl md:text-6xl text-gray-200`}
           >
             Insight That Matters
           </p>
