@@ -108,9 +108,26 @@ export default function WhatWeDo() {
 
 function ValueCard({ title, number, text }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 md:py-7 md:px-14 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(250,204,21,0.4)]">
-      {/* yellow glow on hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div
+      className="
+        group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 
+        backdrop-blur-sm p-6 md:py-7 md:px-14 shadow-lg transition-all duration-300 
+        hover:-translate-y-2 active:-translate-y-2 focus:-translate-y-2
+        hover:shadow-[0_0_35px_rgba(250,204,21,0.4)]
+        active:shadow-[0_0_35px_rgba(250,204,21,0.4)]
+        focus:shadow-[0_0_35px_rgba(250,204,21,0.4)]
+      "
+      tabIndex={0}   // IMPORTANT for mobile focus
+    >
+      {/* yellow glow */}
+      <div
+        className="
+          pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500
+          group-hover:opacity-100 
+          group-active:opacity-100 
+          group-focus:opacity-100
+        "
+      >
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-40 w-40 bg-yellow-400 blur-3xl" />
         </div>
@@ -120,7 +137,7 @@ function ValueCard({ title, number, text }) {
       <div className="relative flex items-start justify-between gap-4">
         <div className="space-y-2">
           <h3 className={`${dm.className} text-3xl md:text-[35px] py-4`}>{title}</h3>
-          <p className={`${dm.className} text-lg text-[20px] text-gray-100 leading-relaxed`}>
+          <p className={`${dm.className} text-lg md:text-[20px] text-gray-100 leading-relaxed`}>
             {text}
           </p>
         </div>
@@ -129,6 +146,7 @@ function ValueCard({ title, number, text }) {
     </div>
   );
 }
+
 
 function WhatItem({ title, text }) {
   return (

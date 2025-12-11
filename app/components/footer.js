@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // components/Footer.js
 
+import Link from "next/link";
 import {
   FaFacebookF,
   FaInstagram,
@@ -22,7 +23,7 @@ export default function Footer() {
       {/* Dark overlay for readability */}
       <div className="absolute inset-0" />
 
-      <div className="relative max-w-6xl mx-auto px-4 md:px-8 lg:px-16 pt-16 pb-10">
+      <div className="relative max-w-[1300px] mx-auto px-4 md:px-8 lg:px-16 pt-16 pb-10">
         {/* TOP GRID */}
         <div
           className="
@@ -130,41 +131,41 @@ export default function Footer() {
 
           {/* Legal & Compliance */}
           <div className="space-y-4">
-            <h3 className="text-sm md:text-base font-semibold tracking-wide">
-              Legal &amp; Compliance
+            <h3 className="text-sm md:text-base font-semibold tracking-wide inline-block">
+              Legal & Compliance
             </h3>
             <ul className="space-y-2 text-xs md:text-sm text-gray-200">
               <li>
-                <a
-                  href="/legal/disclaimer"
+                <Link
+                  href="/components/legal/disclimer"
                   className="hover:text-yellow-300 transition-colors"
                 >
                   Disclaimer
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/legal/privacy-policy"
+                <Link
+                  href="/components/legal/privacy"
                   className="hover:text-yellow-300 transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/legal/cookie-policy"
+                <Link
+                  href="/components/legal/cookie"
                   className="hover:text-yellow-300 transition-colors"
                 >
                   Cookie Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/legal/terms"
+                <Link
+                  href="/components/legal/terms"
                   className="hover:text-yellow-300 transition-colors"
                 >
                   Terms Of Use
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -71,16 +71,30 @@ export default function HowWeWork() {
 
 function WorkCard({ title, text, image }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]">
-      
-      {/* blue glow on hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div
+      tabIndex={0}
+      className="
+        group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10
+        backdrop-blur-sm shadow-lg transition-all duration-300
+        hover:-translate-y-2 active:-translate-y-2 focus:-translate-y-2
+        hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]
+        active:shadow-[0_0_30px_rgba(56,189,248,0.45)]
+        focus:shadow-[0_0_30px_rgba(56,189,248,0.45)]
+      "
+    >
+      {/* blue glow on hover / active / focus */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500
+          group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100
+        "
+      >
         <div className="absolute inset-0 bg-cyan-500/15 blur-2xl" />
       </div>
 
       {/* content wrapper with equal padding */}
       <div className="relative flex flex-col h-full px-6 pt-5 pb-6">
-        
         {/* Text */}
         <div>
           <h3 className={`${dm.className} text-lg md:text-[28px] text-yellow-300`}>
@@ -97,7 +111,9 @@ function WorkCard({ title, text, image }) {
             src={image}
             alt={title}
             fill
-            className="object-contain transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain transition-transform duration-500 group-hover:scale-105 group-active:scale-105 group-focus:scale-105"
+            priority={false}
           />
 
           {/* gradient overlay */}
