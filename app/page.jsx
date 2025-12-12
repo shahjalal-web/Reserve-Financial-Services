@@ -172,7 +172,7 @@ export default function Home() {
         />
       )}
 
-      {/* main site content — only visible if consentGiven or after accept */}
+      {/* main site content — only visible after accept */}
       {consentGiven && (
         <div className="">
           <CoreArchitecturePage />
