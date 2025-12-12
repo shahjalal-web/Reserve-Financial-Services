@@ -217,7 +217,7 @@ export default function Aboutus() {
             <br className="hidden sm:block" /> Focused and Disciplined
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-xl text-gray-100 leading-relaxed">
+          <p className="text-md sm:text-sm md:text-xl text-gray-100 leading-relaxed">
             Reserve Financial Services Ltd was established in the United Kingdom
             to participate in financial markets using only its own capital.
             Guided by disciplined research and in-house tools, our trading is

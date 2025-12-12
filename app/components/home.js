@@ -24,7 +24,7 @@ export default function Hero() {
         </h1>
 
         {/* Paragraph */}
-        <p className="text-xs max-w-5xl md:text-[32px] font-light text-gray-100 leading-relaxed">
+        <p className="text-lg max-w-5xl md:text-[32px] font-light text-gray-100 leading-relaxed">
           Reserve Financial Services Ltd combines technology, data, and
           discipline to support internal trading decisions. We trade solely with
           company capital, guided by research and innovation.
