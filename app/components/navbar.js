@@ -87,10 +87,9 @@ export default function Navbar() {
               <Image
                 src="/images/Logo.svg"
                 alt="Reserve Financial Services Logo"
-                width={200} 
-                height={60}
+                width={160}
+                height={50}
                 priority
-                className="w-32 h-auto lg:w-40" 
               />
             </Link>
 
