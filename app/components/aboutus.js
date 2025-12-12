@@ -114,20 +114,10 @@ export default function Aboutus() {
 
   return (
     <section
-      className="
-    relative w-full text-white
-    px-4 md:px-8 lg:px-16
-    pt-24 md:pt-24
-    pb-10 md:pb-28
-    bg-black
-    bg-[url('/images/About-mobile.png')]
-    md:bg-[url('/images/About.png')]
-
-    bg-center bg-no-repeat
-    bg-contain md:bg-cover
+      className="relative w-full text-white px-4 md:px-8 lg:px-16 pt-24 md:pt-24 pb-10 md:pb-28 bg-black bg-[url('/images/About-mobile.png')] md:bg-[url('/images/About.png')] bg-center bg-no-repeat bg-contain md:bg-cover  max-w-[1500px] mx-auto
   "
     >
-      <div className="mx-auto md:py-24">
+      <div className="mx-auto md:py-24 max-w-[1200px]">
         {/* TOP: Insight That Matters */}
         <div className="text-center space-y-3">
           <p

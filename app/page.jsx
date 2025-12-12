@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* app/page.jsx (or wherever your Home component sits) */
 "use client";
 
@@ -57,7 +58,7 @@ function ConsentGate({ onAccept }) {
       role="dialog"
       aria-modal="true"
       aria-label="Site access confirmation"
-      className="fixed inset-0 z-[9999] flex items-center justify-center px-6"
+      className="fixed inset-0 z-9999 flex items-center justify-center px-6"
     >
       {/* background */}
       <div
@@ -171,14 +172,14 @@ export default function Home() {
 
       {/* main site content — only visible if consentGiven or after accept */}
       {consentGiven && (
-        <>
+        <div className="">
           <CoreArchitecturePage />
           <Aboutus />
           <WhatWeDo />
           <Animated />
           <HowWeWork />
           <ContactForm />
-        </>
+        </div>
       )}
     </div>
   );

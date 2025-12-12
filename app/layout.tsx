@@ -1,8 +1,6 @@
-
 import "./globals.css";
-import Navbar from "../app/components/navbar"
-import Footer from "../app/components/footer"
-
+import Navbar from "../app/components/navbar";
+import Footer from "../app/components/footer";
 
 export default function RootLayout({
   children,
@@ -11,12 +9,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`antialiased`}>
+        <div className="bg-black">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -23,7 +23,7 @@ export default function WhatWeDo() {
         px-4 md:px-8 lg:px-16
         md:py-24
         bg-[url('/images/bg-whatwedo-png.png')]
-        bg-top bg-no-repeat bg-cover
+        bg-top bg-no-repeat bg-cover  max-w-[1500px] mx-auto
       "
     >
       <div className="max-w-6xl mx-auto space-y-16">

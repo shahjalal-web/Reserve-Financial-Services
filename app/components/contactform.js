@@ -120,7 +120,7 @@ export default function ContactForm() {
   return (
     <section
       id="contactform"
-      className="relative w-full text-white px-4 md:px-8 lg:px-16 py-20 md:py-48 bg-[url('/images/bg-form.png')] bg-top bg-cover bg-no-repeat"
+      className="relative w-full text-white px-4 md:px-8 lg:px-16 py-20 md:py-48 bg-[url('/images/bg-form.png')] bg-top bg-cover bg-no-repeat max-w-[1500px] mx-auto"
     >
       {/* Emoji font fix */}
       <style jsx global>{`

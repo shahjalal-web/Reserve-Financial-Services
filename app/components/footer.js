@@ -17,7 +17,7 @@ export default function Footer() {
       className="
         relative w-full text-white
         bg-[url('/images/footer.png')]
-        bg-top bg-cover bg-no-repeat
+        bg-top bg-cover bg-no-repeat  max-w-[1500px] mx-auto
       "
     >
       {/* Dark overlay for readability */}

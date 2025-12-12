@@ -21,7 +21,7 @@ export default function HowWeWork() {
         relative w-full text-white
         px-4 md:px-8 lg:px-16
         py-20 md:py-24
-        bg-[url('/images/bg-howwework-png.png')]
+        bg-[url('/images/bg-howwework-png.png')] max-w-[1500px] mx-auto
       "
     >
       <div className="max-w-[1200px] mx-auto">
@@ -84,7 +84,7 @@ function WorkCard({ title, text, image }) {
         hover:-translate-y-2 active:-translate-y-2 focus:-translate-y-2
         hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]
         active:shadow-[0_0_30px_rgba(56,189,248,0.45)]
-        focus:shadow-[0_0_30px_rgba(56,189,248,0.45)]
+        focus:shadow-[0_0_30px_rgba(56,189,248,0.45)] 
       "
     >
       {/* blue glow on hover / active / focus */}
