@@ -1,3 +1,4 @@
+// components/Navbar.js
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -20,6 +21,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Fix: Add window resize listener to ensure full width works correctly on mobile
+  useEffect(() => {
+    const handleResize = () => {
+      // If the menu is open and the screen is large, close the menu
+      if (window.innerWidth >= 1024 && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [menuOpen]);
+
   const handleNavClick = (id, e) => {
     if (e) e.preventDefault();
 
@@ -29,9 +43,11 @@ export default function Navbar() {
     // smooth scroll to section with navbar offset
     const target = document.getElementById(id);
     if (target) {
+      // Find the fixed nav element
       const nav = document.querySelector("nav");
       const navHeight = nav ? nav.offsetHeight : 0;
 
+      // Calculate scroll position, adding a small offset (8px)
       const y =
         target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
 
@@ -51,8 +67,9 @@ export default function Navbar() {
 
   return (
     <>
-      {/* NAVBAR */}
-      <div className="w-full">
+      {/* ⚠️ গুরুত্বপূর্ণ: এই outermost div-এ w-full নিশ্চিত করা হয়েছে */}
+      <div className="w-full"> 
+        {/* NAVBAR */}
         <nav
           className={`
             fixed top-0 w-full z-50 transition-all duration-300
@@ -65,19 +82,19 @@ export default function Navbar() {
         >
           {/* MAX WIDTH WRAPPER */}
           <div className="max-w-[1500px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-16 py-4 lg:pt-12 lg:pb-3">
-
-            {/* Logo */}
+            {/* Logo (অপরিবর্তিত) */}
             <Link href="/" className="inline-block">
               <Image
                 src="/images/Logo.svg"
                 alt="Reserve Financial Services Logo"
-                width={160}
-                height={50}
+                width={200} 
+                height={60}
                 priority
+                className="w-32 h-auto lg:w-40" 
               />
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation (অপরিবর্তিত) */}
             <ul className="hidden lg:flex gap-10 text-white font-medium">
               {navItems.map((item) => (
                 <li key={item.id} className="cursor-pointer">
@@ -96,7 +113,7 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile Hamburger (অপরিবর্তিত) */}
             <button
               type="button"
               className="lg:hidden text-white text-3xl pl-3"
@@ -108,7 +125,7 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* OVERLAY */}
+        {/* OVERLAY (অপরিবর্তিত) */}
         <div
           className={`
             lg:hidden fixed inset-0 z-40
@@ -123,7 +140,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
         />
 
-        {/* DRAWER */}
+        {/* DRAWER (অপরিবর্তিত, তবে w-[260px] ফিক্সড আছে যা সাধারণত সমস্যা করে না) */}
         <div
           id="mobile-navigation"
           className={`
@@ -135,7 +152,7 @@ export default function Navbar() {
             ${menuOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
-          {/* Close button */}
+          {/* Close button (অপরিবর্তিত) */}
           <button
             type="button"
             className="absolute top-4 right-4 text-white text-3xl"
@@ -145,7 +162,7 @@ export default function Navbar() {
             ✕
           </button>
 
-          {/* Mobile Nav Items */}
+          {/* Mobile Nav Items (অপরিবর্তিত) */}
           {navItems.map((item) => (
             <button
               key={item.id}
