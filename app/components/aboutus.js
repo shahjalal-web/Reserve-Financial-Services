@@ -1,7 +1,7 @@
-// components/contactform.js
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { DM_Sans, Manrope } from "next/font/google";
 
 const manrope = Manrope({
@@ -10,311 +10,309 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const COUNTRIES = [
-  { name: "Afghanistan", dialCode: "+93", flag: "🇦🇫" },
-  { name: "Albania", dialCode: "+355", flag: "🇦🇱" },
-  { name: "Algeria", dialCode: "+213", flag: "🇩🇿" },
-  { name: "Andorra", dialCode: "+376", flag: "🇦🇩" },
-  { name: "Angola", dialCode: "+244", flag: "🇦🇴" },
-  { name: "Argentina", dialCode: "+54", flag: "🇦🇷" },
-  { name: "Armenia", dialCode: "+374", flag: "🇦🇲" },
-  { name: "Australia", dialCode: "+61", flag: "🇦🇺" },
-  { name: "Austria", dialCode: "+43", flag: "🇦🇹" },
-  { name: "Azerbaijan", dialCode: "+994", flag: "🇦🇿" },
-  { name: "Bahamas", dialCode: "+1-242", flag: "🇧🇸" },
-  { name: "Bahrain", dialCode: "+973", flag: "🇧🇭" },
-  { name: "Bangladesh", dialCode: "+880", flag: "🇧🇩" },
-  { name: "Belgium", dialCode: "+32", flag: "🇧🇪" },
-  { name: "Brazil", dialCode: "+55", flag: "🇧🇷" },
-  { name: "Canada", dialCode: "+1", flag: "🇨🇦" },
-  { name: "China", dialCode: "+86", flag: "🇨🇳" },
-  { name: "France", dialCode: "+33", flag: "🇫🇷" },
-  { name: "Germany", dialCode: "+49", flag: "🇩🇪" },
-  { name: "India", dialCode: "+91", flag: "🇮🇳" },
-  { name: "Italy", dialCode: "+39", flag: "🇮🇹" },
-  { name: "Japan", dialCode: "+81", flag: "🇯🇵" },
-  { name: "Malaysia", dialCode: "+60", flag: "🇲🇾" },
-  { name: "Nepal", dialCode: "+977", flag: "🇳🇵" },
-  { name: "Netherlands", dialCode: "+31", flag: "🇳🇱" },
-  { name: "Pakistan", dialCode: "+92", flag: "🇵🇰" },
-  { name: "Saudi Arabia", dialCode: "+966", flag: "🇸🇦" },
-  { name: "Singapore", dialCode: "+65", flag: "🇸🇬" },
-  { name: "South Korea", dialCode: "+82", flag: "🇰🇷" },
-  { name: "Spain", dialCode: "+34", flag: "🇪🇸" },
-  { name: "Sri Lanka", dialCode: "+94", flag: "🇱🇰" },
-  { name: "Sweden", dialCode: "+46", flag: "🇸🇪" },
-  { name: "Switzerland", dialCode: "+41", flag: "🇨🇭" },
-  { name: "Thailand", dialCode: "+66", flag: "🇹🇭" },
-  { name: "Turkey", dialCode: "+90", flag: "🇹🇷" },
-  { name: "United Arab Emirates", dialCode: "+971", flag: "🇦🇪" },
-  { name: "United Kingdom", dialCode: "+44", flag: "🇬🇧" },
-  { name: "United States", dialCode: "+1", flag: "🇺🇸" },
+const dm = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500"],
+  display: "swap",
+});
+
+const featureCards = [
+  {
+    id: 1,
+    title: "Technology-Driven",
+    icon: "/icons/icon_1.png",
+    description:
+      "Our infrastructure is built on robust technology, enabling efficient trade execution, risk monitoring, and real-time analytics that enhance our internal trading operations.",
+    wrapperClass: `
+      group relative rounded-2xl border border-white/10
+      bg-white/5 backdrop-blur-sm p-6 shadow-lg
+      transition-transform duration-300
+      hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/40 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/40 focus:bg-white/10
+      overflow-hidden touch-manipulation py-20
+    `,
+  },
+  {
+    id: 2,
+    title: "Intelligence at Core",
+    icon: "/icons/icon_2.png",
+    description:
+      "Data, research, and proprietary models sit at the heart of our decision-making, helping us uncover opportunity and measure risk across changing markets.",
+    wrapperClass: `
+      group relative rounded-2xl border border-cyan-400/40
+      bg-cyan-500/10 backdrop-blur-sm p-6 shadow-xl
+      transition-transform duration-300
+      hover:-translate-y-2 hover:border-cyan-400/60 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/60 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/60 focus:bg-white/10
+      overflow-hidden touch-manipulation py-20
+    `,
+  },
+  {
+    id: 3,
+    title: "Disciplined Trading",
+    icon: "/icons/icon_3.png",
+    description:
+      "A rigorous framework keeps our trading focused, risk-aware, and systematic, with clear controls to support long-term performance.",
+    wrapperClass: `
+      group relative rounded-2xl border border-white/10
+      bg-white/5 backdrop-blur-sm p-6 shadow-lg
+      transition-transform duration-300
+      hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/40 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/40 focus:bg-white/10
+      overflow-hidden touch-manipulation py-20
+    `,
+  },
 ];
 
-export default function ContactForm() {
-  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const dropdownRef = useRef(null);
-
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-    consent: false,
-  });
-
-  const [errors, setErrors] = useState({});
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const filteredCountries = COUNTRIES.filter((country) =>
-    (country.name + country.dialCode)
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase())
-  );
-
-  function validateForm() {
-    let newErrors = {};
-    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!form.email.trim()) newErrors.email = "Email is required";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email))
-      newErrors.email = "Invalid email address";
-    if (!form.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!form.message.trim()) newErrors.message = "Message is required";
-    return newErrors;
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      setSuccess(true);
-      setForm({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-        consent: false,
-      });
-      setTimeout(() => setSuccess(false), 3000);
-    }
-  }
-
+function FeatureCard({ title, icon, description, wrapperClass }) {
   return (
-    <section
-      id="contactform"
-      className="relative w-full text-white px-4 md:px-8 lg:px-16 py-20 md:py-24 bg-[url('/images/bg-form-png.png')] bg-top bg-cover bg-no-repeat"
+    <div
+      className={`group ${wrapperClass} w-full outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0`}
+      tabIndex={0}
     >
-      {/* Emoji font fix */}
-      <style jsx global>{`
-        .emoji {
-          font-family: "Apple Color Emoji", "Segoe UI Emoji",
-            "Noto Color Emoji", sans-serif !important;
-        }
-      `}</style>
+      {/* blue glow background — only the cyan glow will animate on hover/focus */}
+      <div
+        className="
+          absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
+          transition-all duration-500
+          group-hover:opacity-100
+          group-active:opacity-100
+          group-focus:opacity-100
+        "
+        aria-hidden="true"
+      />
 
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-10 space-y-2">
-          <h2 className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}>
-            Speak with <span className="text-[#FBF705]">Our Team</span>
-          </h2>
+      <div className="relative mb-4">
+        <div className="flex h-16 w-16 p-4 items-center justify-center rounded-full bg-[#FBF705] text-black font-semibold text-lg">
+          <img src={icon} alt="" />
         </div>
-
-        <form className="space-y-5" onSubmit={handleSubmit}>
-          {/* FIRST & LAST NAME */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FieldWrapper>
-              <input
-                type="text"
-                value={form.firstName}
-                onChange={(e) =>
-                  setForm({ ...form, firstName: e.target.value })
-                }
-                className={`w-full bg-black/40 border ${
-                  errors.firstName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 py-3 text-sm placeholder:text-white`}
-                placeholder="First Name"
-              />
-              {errors.firstName && (
-                <p className="text-red-400 text-xs">{errors.firstName}</p>
-              )}
-            </FieldWrapper>
-
-            <FieldWrapper>
-              <input
-                type="text"
-                value={form.lastName}
-                onChange={(e) =>
-                  setForm({ ...form, lastName: e.target.value })
-                }
-                className={`w-full bg-black/40 border ${
-                  errors.lastName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 py-3 text-sm placeholder:text-white`}
-                placeholder="Last Name"
-              />
-              {errors.lastName && (
-                <p className="text-red-400 text-xs">{errors.lastName}</p>
-              )}
-            </FieldWrapper>
-          </div>
-
-          {/* EMAIL */}
-          <FieldWrapper>
-            <input
-              type="email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className={`w-full bg-black/40 border ${
-                errors.email ? "border-red-400" : "border-white/20"
-              } rounded-md px-3 py-3 text-sm placeholder:text-white`}
-              placeholder="Email Address"
-            />
-            {errors.email && (
-              <p className="text-red-400 text-xs">{errors.email}</p>
-            )}
-          </FieldWrapper>
-
-          {/* PHONE + COUNTRY SELECT */}
-          <FieldWrapper>
-            <div className="flex items-center gap-2 bg-black/40 border border-white/20 rounded-md px-2 py-2">
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center gap-2 px-2 py-1 rounded-md bg-black/40 border border-white/20 text-sm"
-                >
-                  <span className="text-lg emoji">{selectedCountry.flag}</span>
-                  <span className="text-sm text-gray-100">
-                    {selectedCountry.dialCode}
-                  </span>
-                  <span className="text-xs text-gray-400">▼</span>
-                </button>
-
-                {isOpen && (
-                  <div className="absolute z-30 mt-2 w-64 rounded-lg bg-black/90 border border-white/15 shadow-xl">
-                    <div className="p-2 border-b border-white/10">
-                      <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        placeholder="Search country or code"
-                        className="w-full bg-black/60 border border-white/15 rounded-md px-2 py-1.5 text-xs text-gray-100"
-                      />
-                    </div>
-
-                    <div className="max-h-60 overflow-y-auto">
-                      {filteredCountries.map((country) => (
-                        <button
-                          key={country.name}
-                          type="button"
-                          onClick={() => {
-                            setSelectedCountry(country);
-                            setIsOpen(false);
-                          }}
-                          className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-yellow-400/10"
-                        >
-                          <span className="text-lg emoji">{country.flag}</span>
-                          <span className="flex-1 text-gray-100">
-                            {country.name}
-                          </span>
-                          <span className="text-gray-300">
-                            {country.dialCode}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <input
-                type="tel"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="flex-1 bg-transparent text-sm px-2 py-1.5 placeholder:text-white"
-                placeholder="Phone Number"
-              />
-            </div>
-            {errors.phone && (
-              <p className="text-red-400 text-xs">{errors.phone}</p>
-            )}
-          </FieldWrapper>
-
-          {/* MESSAGE */}
-          <FieldWrapper>
-            <textarea
-              rows={4}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className={`w-full bg-black/40 border ${
-                errors.message ? "border-red-400" : "border-cyan-400/60"
-              } rounded-md px-3 py-3 text-sm resize-none placeholder:text-white`}
-              placeholder="Write your message..."
-            />
-            {errors.message && (
-              <p className="text-red-400 text-xs">{errors.message}</p>
-            )}
-          </FieldWrapper>
-
-          {/* CONSENT CHECKBOX */}
-          <div className="flex items-start gap-3 text-sm text-gray-200">
-            <input
-              id="marketing-consent"
-              type="checkbox"
-              checked={form.consent}
-              onChange={(e) =>
-                setForm({ ...form, consent: e.target.checked })
-              }
-              className="mt-1 h-4 w-4 rounded border-white/40 bg-black/50"
-            />
-            <label htmlFor="marketing-consent">
-              I agree to receive updates and marketing emails from Reserve
-              Financial Services.
-            </label>
-          </div>
-
-          {success && (
-            <div className="mb-6 p-4 rounded-md bg-green-500/20 text-green-300 border border-green-500/30 text-center">
-              🎉 Message Sent Successfully!
-            </div>
-          )}
-
-          <button
-            type="submit"
-            className="w-full sm:w-auto px-12 py-3 rounded-md bg-yellow-400 text-black font-semibold text-sm hover:bg-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.6)]"
-          >
-            Submit
-          </button>
-        </form>
+        <h3 className="text-xl md:text-2xl font-semibold mt-4">{title}</h3>
       </div>
-    </section>
+
+      <p className="relative text-xl text-center md:text-left text-gray-100 leading-relaxed">
+        {description}
+      </p>
+    </div>
   );
 }
 
-function FieldWrapper({ label, required, children }) {
+export default function Aboutus() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % featureCards.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex(
+      (prev) => (prev - 1 + featureCards.length) % featureCards.length
+    );
+  };
+
   return (
-    <div className="space-y-1">
-      {label && (
-        <label className="block text-sm text-gray-100">
-          {label} {required && <span className="text-red-400">*</span>}
-        </label>
-      )}
-      {children}
-    </div>
+    <section
+      className="
+    relative w-full text-white
+    px-4 md:px-8 lg:px-16
+    pt-24 md:pt-24
+    pb-10 md:pb-28
+    bg-black
+    bg-[url('/images/About-mobile.png')]
+    md:bg-[url('/images/About.png')]
+
+    bg-center bg-no-repeat
+    bg-contain md:bg-cover
+  "
+    >
+      <div className="mx-auto md:py-24">
+        {/* TOP: Insight That Matters */}
+        <div className="text-center space-y-3">
+          <p
+            className={`${manrope.className} mb-3 text-3xl md:text-6xl text-gray-200`}
+          >
+            Insight That Matters
+          </p>
+        </div>
+
+        {/* ---- MOBILE: CAROUSEL VIEW ---- */}
+        <div className="mt-10 md:hidden relative">
+          {/* Active card – full width */}
+          <div className="w-full overflow-hidden">
+            <FeatureCard {...featureCards[activeIndex]} />
+          </div>
+
+          {/* Left button - overlay on top of card */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="
+      absolute left-2 top-1/2 -translate-y-1/2
+      h-10 w-10 rounded-full border border-white/30
+      bg-black/60 backdrop-blur-sm
+      flex items-center justify-center
+      text-sm font-semibold
+      active:scale-95
+    "
+            aria-label="Previous feature"
+          >
+            ‹
+          </button>
+
+          {/* Right button - overlay on top of card */}
+          <button
+            type="button"
+            onClick={handleNext}
+            className="
+      absolute right-2 top-1/2 -translate-y-1/2
+      h-10 w-10 rounded-full border border-white/30
+      bg-black/60 backdrop-blur-sm
+      flex items-center justify-center
+      text-sm font-semibold
+      active:scale-95
+    "
+            aria-label="Next feature"
+          >
+            ›
+          </button>
+        </div>
+
+        {/* Optional: small indicator dots for mobile */}
+        <div className="mt-4 md:hidden flex justify-center gap-2">
+          {featureCards.map((card, idx) => (
+            <button
+              key={card.id}
+              onClick={() => setActiveIndex(idx)}
+              className={`
+                h-2 w-2 rounded-full
+                ${idx === activeIndex ? "bg-yellow-400 w-4" : "bg-white/40"}
+              `}
+              aria-label={`Show feature ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* ---- DESKTOP/TABLET: ORIGINAL GRID VIEW ---- */}
+        <div className="mt-10 hidden md:grid gap-6 md:grid-cols-3">
+          {featureCards.map((card) => (
+            <FeatureCard key={card.id} {...card} />
+          ))}
+        </div>
+
+        {/* ABOUT US TEXT BLOCK */}
+        <div
+          className="mt-16 md:my-64 max-w-3xl mx-auto text-center space-y-5"
+          id="aboutus"
+        >
+          <span className="inline-block rounded-full border border-yellow-400/70 px-5 py-3 text-[20px] font-bold uppercase tracking-[0.25em] text-yellow-300">
+            About Us
+          </span>
+
+          <h2
+            className={`${manrope.className} text-2xl sm:text-3xl md:text-6xl leading-snug`}
+          >
+            We are Committed,
+            <br className="hidden sm:block" /> Focused and Disciplined
+          </h2>
+
+          <p className="text-md sm:text-sm md:text-xl text-gray-100 leading-relaxed">
+            Reserve Financial Services Ltd was established in the United Kingdom
+            to participate in financial markets using only its own capital.
+            Guided by disciplined research and in-house tools, our trading is
+            internal and systematically managed. We do not manage client funds
+            or provide investment advice, focusing entirely on our own
+            operations.
+          </p>
+
+          <div className="md:block hidden mt-10 md:mt-28 h-px w-full mx-auto bg-white/40" />
+        </div>
+
+        {/* OUR VISION SECTION */}
+        <div className="mb-24 mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+          {/* Vision + Mission */}
+          <div className="space-y-8">
+            {/* Vision card */}
+            <div className="group" tabIndex={0}>
+              <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border md:w-full w-1/2 mb-8">
+                <div
+                  className="
+                    rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm
+                    transition-all duration-300
+                    group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-active:bg-black/80 group-active:-translate-y-1 group-active:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-focus:bg-black/80 group-focus:-translate-y-1 group-focus:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    touch-manipulation
+                  "
+                >
+                  <div className="space-y-3">
+                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-[#FBF705]`}>
+                      Our Vision
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">
+                      To transform data into direction, intelligence into
+                      insight, and risk into disciplined control in
+                      unpredictable markets.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mission card */}
+            <div className="group" tabIndex={0}>
+              <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border">
+                <div
+                  className="
+                    rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm
+                    transition-all duration-300
+                    group-hover:bg-black/80 group-hover:-translate-y-1 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-active:bg-black/80 group-active:-translate-y-1 group-active:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    group-focus:bg-black/80 group-focus:-translate-y-1 group-focus:shadow-[0_0_25px_rgba(56,189,248,0.5)]
+                    touch-manipulation
+                  "
+                >
+                  <div className="space-y-3">
+                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-[#FBF705]`}>
+                      Our Mission
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">
+                      To combine technology, research, and disciplined execution
+                      to build a resilient trading operation, continually
+                      adapting to evolving market conditions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side “astronaut area” placeholder / highlight box */}
+          {/* <div className="hidden md:block">
+            <div className="relative h-64 lg:h-80 w-full rounded-3xl border border-white/15 bg-black/40 backdrop-blur-sm shadow-2xl p-6 flex flex-col justify-between overflow-hidden">
+              <div className="absolute inset-0 bg-cyan-500/10 opacity-40 blur-2xl" />
+              <div className="relative">
+                <span className="text-xs tracking-[0.25em] uppercase text-cyan-300">
+                  Future Outlook
+                </span>
+
+                <h4 className="mt-2 text-xl font-semibold text-white">
+                  Looking Beyond Today
+                </h4>
+
+                <div className="mt-2 h-0.5 w-14 bg-linear-to-r from-cyan-400 to-yellow-400 rounded-full" />
+              </div>
+
+              <p className="relative text-sm text-gray-100 max-w-xs">
+                Focused on the horizon of innovation, our vision extends beyond
+                today&apos;s markets, preparing for the next wave of
+                opportunities.
+              </p>
+            </div>
+          </div> */}
+        </div>
+      </div>
+    </section>
   );
 }
