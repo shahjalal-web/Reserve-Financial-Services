@@ -53,7 +53,7 @@ export default function CookiePolicy() {
         "
       />
 
-      {/* ---------- right-side blue glow (½ off-screen) ---------- */}
+      {/* ---------- right-side blue glow ---------- */}
       <div
         aria-hidden="true"
         className="
@@ -73,9 +73,11 @@ export default function CookiePolicy() {
 
       {/* CONTENT AREA */}
       <div className="relative z-10 mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
+
+        {/* PAGE TITLE */}
         <header className="mb-8 md:mb-12">
           <h1
-            className={`${manrope.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight`}
+            className={`${manrope.className} text-3xl md:text-[96px] mt-9 font-semibold leading-tight`}
           >
             Cookie Policy
           </h1>
@@ -83,11 +85,14 @@ export default function CookiePolicy() {
 
         {/* CONTENT CARD */}
         <article className="rounded-2xl p-6 md:p-10">
-          <div className="prose prose-invert">
+          <div className="prose prose-invert max-w-none">
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">1. Introduction</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
+            {/* 1. INTRODUCTION */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                1. Introduction
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
                 Reserve Financial Services Ltd ("we", "our", or "us") uses cookies and
                 similar technologies on this website to improve user experience, monitor
                 website performance, and ensure security. This Cookie Policy explains
@@ -95,93 +100,115 @@ export default function CookiePolicy() {
               </p>
             </section>
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">2. What Are Cookies?</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
+            {/* 2. WHAT ARE COOKIES */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                2. What Are Cookies?
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
                 Cookies are small text files stored on your device when you visit a
                 website. They help the website remember your preferences, analyse usage,
                 and provide certain functionalities.
               </p>
             </section>
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">3. Types of Cookies We Use</h2>
+            {/* 3. TYPES OF COOKIES */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                3. Types of Cookies We Use
+              </h2>
 
-              <ul className="space-y-3 list-none">
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400 shrink-0" />
+              <ul className="list-none space-y-8 md:space-y-10">
+                <li className="flex gap-4">
+                  <span className="mt-3 h-3 w-3 rounded-full bg-yellow-400 shrink-0"></span>
                   <div>
-                    <strong className="text-yellow-300">Essential Cookies</strong>
-                    <p className="text-sm md:text-base text-gray-200 leading-relaxed mt-1">
-                      Required for core functionality, security, and basic navigation.
+                    <strong className="text-yellow-300 text-base md:text-[36px]">
+                      Essential Cookies
+                    </strong>
+                    <p className="text-sm md:text-[32px] text-gray-200 leading-relaxed mt-2">
+                      Required for core functionality, security, and navigation.
                     </p>
                   </div>
                 </li>
 
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400 shrink-0" />
+                <li className="flex gap-4">
+                  <span className="mt-3 h-3 w-3 rounded-full bg-yellow-400 shrink-0"></span>
                   <div>
-                    <strong className="text-yellow-300">Performance &amp; Analytics Cookies</strong>
-                    <p className="text-sm md:text-base text-gray-200 leading-relaxed mt-1">
-                      Help track site usage so we can improve content and user experience.
+                    <strong className="text-yellow-300 text-base md:text-[36px]">
+                      Performance & Analytics Cookies
+                    </strong>
+                    <p className="text-sm md:text-[32px] text-gray-200 leading-relaxed mt-2">
+                      Help track site usage so we can improve content and UX.
                     </p>
                   </div>
                 </li>
 
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400 shrink-0" />
+                <li className="flex gap-4">
+                  <span className="mt-3 h-3 w-3 rounded-full bg-yellow-400 shrink-0"></span>
                   <div>
-                    <strong className="text-yellow-300">Functional Cookies</strong>
-                    <p className="text-sm md:text-base text-gray-200 leading-relaxed mt-1">
-                      Store preferences (like language) for a more personalised experience.
+                    <strong className="text-yellow-300 text-base md:text-[36px]">
+                      Functional Cookies
+                    </strong>
+                    <p className="text-sm md:text-[32px] text-gray-200 leading-relaxed mt-2">
+                      Store preferences like language or layout.
                     </p>
                   </div>
                 </li>
 
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400 shrink-0" />
+                <li className="flex gap-4">
+                  <span className="mt-3 h-3 w-3 rounded-full bg-yellow-400 shrink-0"></span>
                   <div>
-                    <strong className="text-yellow-300">Third-Party Cookies</strong>
-                    <p className="text-sm md:text-base text-gray-200 leading-relaxed mt-1">
-                      Placed by analytics or embedded services to measure traffic and performance.
+                    <strong className="text-yellow-300 text-base md:text-[36px]">
+                      Third-Party Cookies
+                    </strong>
+                    <p className="text-sm md:text-[32px] text-gray-200 leading-relaxed mt-2">
+                      Placed by analytics or embedded services for traffic monitoring.
                     </p>
                   </div>
                 </li>
               </ul>
             </section>
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">4. Your Cookie Choices</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
-                You can manage or disable cookies from your browser settings. Blocking certain
-                cookies may affect website functionality.
+            {/* 4. YOUR COOKIE CHOICES */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                4. Your Cookie Choices
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
+                You can manage or disable cookies via your browser settings. Blocking
+                certain cookies may limit website functionality.
               </p>
             </section>
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">5. Consent</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
-                Continuing to use this website without changing your browser settings means
-                you consent to our use of cookies as described in this policy.
+            {/* 5. CONSENT */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                5. Consent
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
+                By continuing to use this site without changing settings, you consent to
+                our use of cookies.
               </p>
             </section>
 
-            <section className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">6. Updates to This Policy</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
-                We may update this Cookie Policy occasionally. Any changes will appear here
-                with an updated "Last Revised" date.
+            {/* 6. UPDATES */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                6. Updates to This Policy
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
+                We may update this Cookie Policy. Changes will appear here with a revised date.
               </p>
             </section>
 
-            <section className="mb-2">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">7. Contact Us</h2>
-              <p className="text-sm md:text-base leading-relaxed text-gray-200">
-                For questions regarding this policy, please contact us at{" "}
-                <a
-                  href="mailto:info@reservefinancial.co.uk"
-                  className="text-yellow-300 underline"
-                >
+            {/* 7. CONTACT */}
+            <section className="mb-10">
+              <h2 className="text-lg md:text-[48px] font-semibold mb-6">
+                7. Contact Us
+              </h2>
+              <p className="text-sm md:text-[36px] leading-relaxed text-gray-200">
+                For questions, contact us at{" "}
+                <a href="mailto:info@reservefinancial.co.uk" className="text-yellow-300 underline">
                   info@reservefinancial.co.uk
                 </a>
                 .

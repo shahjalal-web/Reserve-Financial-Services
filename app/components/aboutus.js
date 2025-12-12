@@ -118,8 +118,8 @@ export default function Aboutus() {
     relative w-full text-white
     px-4 md:px-8 lg:px-16
     pt-24 md:pt-24
-    pb-20 md:pb-28
-
+    pb-10 md:pb-28
+    bg-black
     bg-[url('/images/About-mobile.png')]
     md:bg-[url('/images/About.png')]
 
@@ -262,7 +262,7 @@ export default function Aboutus() {
 
             {/* Mission card */}
             <div className="group" tabIndex={0}>
-              <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border md:block hidden">
+              <div className="relative rounded-2xl bg-linear-to-r from-cyan-500/40 via-transparent to-cyan-500/40 p-px animate-border">
                 <div
                   className="
                     rounded-2xl bg-black/50 px-5 py-4 sm:px-6 sm:py-5 backdrop-blur-sm

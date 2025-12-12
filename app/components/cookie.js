@@ -33,7 +33,7 @@ export default function CookiePolicy() {
         {/* Main container: single column for mobile, wider for larger screens */}
         <article className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-10 lg:p-12">
           {/* Use a centered column for readability */}
-          <div className="prose prose-invert max-w-none md:max-w-3xl">
+          <div className="prose prose-invert ">
             <section className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-3">1. Introduction</h2>
               <p className="text-sm md:text-base leading-relaxed text-gray-200">

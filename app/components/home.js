@@ -15,7 +15,7 @@ export default function Hero() {
     >
       <div className="relative text-center space-y-6">
         {/* Heading */}
-        <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl md:text-[70px] font-semibold leading-snug md:leading-tight">
+        <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl text-white md:text-[70px] font-semibold leading-snug md:leading-tight">
           <span className="block text-[#FBF705] font-manrope">
             Transforming Data and
           </span>

@@ -108,7 +108,7 @@ function WorkCard({ title, text, image }) {
             {title}
           </h3>
           <p
-            className={`${dm.className} mt-2 text-xs md:text-[20px] text-gray-100 leading-relaxed`}
+            className={`${dm.className} mt-2 text-md md:text-[20px] text-gray-100 leading-relaxed`}
           >
             {text}
           </p>
