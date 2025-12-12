@@ -227,7 +227,7 @@ export default function ContactForm() {
         {/* Heading */}
         <div className="text-center mb-10 space-y-2">
           <h2 className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}>
-            Speak with <span className="text-yellow-400">Our Team</span>
+            Speak with <span className="text-[#FBF705]">Our Team</span>
           </h2>
         </div>
 
@@ -277,7 +277,7 @@ export default function ContactForm() {
               className={`w-full bg-black/40 border ${
                 errors.email ? "border-red-400" : "border-white/20"
               } rounded-md px-3 py-3 text-sm focus:outline-none focus:border-yellow-400 placeholder:text-white`}
-              placeholder="name@example.com"
+              placeholder="Email Address"
             />
             {errors.email && (
               <p className="text-red-400 text-xs">{errors.email}</p>

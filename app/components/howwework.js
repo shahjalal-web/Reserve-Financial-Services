@@ -26,16 +26,21 @@ export default function HowWeWork() {
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Heading + intro text */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h2 className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}>
-            How <span className="text-yellow-400">we work</span>
+        <div className="text-center max-w-5xl mx-auto space-y-4">
+          <h2
+            className={`${manrope.className} text-3xl md:text-[70px] font-semibold`}
+          >
+            How <span className="text-[#FBF705]">we work</span>
           </h2>
-          <p className={`${dm.className}text-xs md:text-[25px] leading-relaxed text-gray-100`}>
+          <p
+            className={`${dm.className}text-xs md:text-[25px] leading-relaxed text-gray-100`}
+          >
             At Reserve Financial Services Ltd, our approach is grounded in
             discipline, research, and technology. We integrate market expertise
             with in-house analytics to guide internal trading decisions. This
             structured methodology ensures clarity, consistency, and the ability
-            to respond confidently in both stable and volatile market conditions.
+            to respond confidently in both stable and volatile market
+            conditions.
           </p>
         </div>
 
@@ -97,30 +102,35 @@ function WorkCard({ title, text, image }) {
       <div className="relative flex flex-col h-full px-6 pt-5 pb-6">
         {/* Text */}
         <div>
-          <h3 className={`${dm.className} text-lg md:text-[28px] text-yellow-300`}>
+          <h3
+            className={`${dm.className} text-lg md:text-[28px] text-yellow-300`}
+          >
             {title}
           </h3>
-          <p className={`${dm.className} mt-2 text-xs md:text-[20px] text-gray-100 leading-relaxed`}>
+          <p
+            className={`${dm.className} mt-2 text-xs md:text-[20px] text-gray-100 leading-relaxed`}
+          >
             {text}
           </p>
         </div>
 
         {/* Image container with SAME side padding */}
-        <div className="relative mt-6 h-64 sm:h-48 md:h-72 overflow-hidden rounded-xl">
+        <div className="relative w-full mt-3 h-64 sm:h-48 md:h-72 overflow-hidden rounded-2xl">
           <Image
             src={image}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-contain transition-transform duration-500 group-hover:scale-105 group-active:scale-105 group-focus:scale-105"
-            priority={false}
+            className="
+            object-cover transition-transform duration-500
+            group-hover:scale-105 group-active:scale-105 group-focus:scale-105
+          "
+            sizes="100vw"
           />
 
-          {/* gradient overlay */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black/40 to-transparent" />
+          {/* Top gradient fade */}
+          <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-black/40 to-transparent" />
         </div>
       </div>
     </div>
   );
 }
-

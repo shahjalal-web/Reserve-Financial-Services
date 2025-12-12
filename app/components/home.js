@@ -13,9 +13,9 @@ export default function Hero() {
       className={`${manrope.className} relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/bg-hero.png')] bg-top bg-no-repeat bg-cover
       `}
     >
-      <div className="relative max-w-3xl text-center space-y-6">
+      <div className="relative text-center space-y-6">
         {/* Heading */}
-        <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl md:text-5xl font-semibold leading-snug md:leading-tight">
+        <h1 className="text-2xl md:mt-0 mt-20 sm:text-3xl md:text-[70px] font-semibold leading-snug md:leading-tight">
           <span className="block text-[#FBF705] font-manrope">
             Transforming Data and
           </span>
@@ -24,7 +24,7 @@ export default function Hero() {
         </h1>
 
         {/* Paragraph */}
-        <p className="text-xs sm:text-sm md:text-lg font-light text-gray-100 leading-relaxed">
+        <p className="text-xs max-w-5xl md:text-[32px] font-light text-gray-100 leading-relaxed">
           Reserve Financial Services Ltd combines technology, data, and
           discipline to support internal trading decisions. We trade solely with
           company capital, guided by research and innovation.

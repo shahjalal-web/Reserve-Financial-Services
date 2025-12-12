@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
 
 import { useState } from "react";
@@ -7,13 +6,13 @@ import { DM_Sans, Manrope } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["500"], // choose what you need
+  weight: ["500"],
   display: "swap",
 });
 
 const dm = DM_Sans({
   subsets: ["latin"],
-  weight: ["500"], // choose what you need
+  weight: ["500"],
   display: "swap",
 });
 
@@ -28,9 +27,9 @@ const featureCards = [
       group relative rounded-2xl border border-white/10
       bg-white/5 backdrop-blur-sm p-6 shadow-lg
       transition-transform duration-300
-      hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
-      active:-translate-y-2 active:border-yellow-400 active:bg-white/10
-      focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+      hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/40 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/40 focus:bg-white/10
       overflow-hidden touch-manipulation py-20
     `,
   },
@@ -44,9 +43,9 @@ const featureCards = [
       group relative rounded-2xl border border-cyan-400/40
       bg-cyan-500/10 backdrop-blur-sm p-6 shadow-xl
       transition-transform duration-300
-      hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
-      active:-translate-y-2 active:border-yellow-400 active:bg-white/10
-      focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+      hover:-translate-y-2 hover:border-cyan-400/60 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/60 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/60 focus:bg-white/10
       overflow-hidden touch-manipulation py-20
     `,
   },
@@ -60,9 +59,9 @@ const featureCards = [
       group relative rounded-2xl border border-white/10
       bg-white/5 backdrop-blur-sm p-6 shadow-lg
       transition-transform duration-300
-      hover:-translate-y-2 hover:border-yellow-400 hover:bg-white/10
-      active:-translate-y-2 active:border-yellow-400 active:bg-white/10
-      focus:-translate-y-2 focus:border-yellow-400 focus:bg-white/10
+      hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10
+      active:-translate-y-2 active:border-cyan-400/40 active:bg-white/10
+      focus:-translate-y-2 focus:border-cyan-400/40 focus:bg-white/10
       overflow-hidden touch-manipulation py-20
     `,
   },
@@ -70,7 +69,11 @@ const featureCards = [
 
 function FeatureCard({ title, icon, description, wrapperClass }) {
   return (
-    <div className={`${wrapperClass} w-full`} tabIndex={0}>
+    <div
+      className={`group ${wrapperClass} w-full outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0`}
+      tabIndex={0}
+    >
+      {/* blue glow background — only the cyan glow will animate on hover/focus */}
       <div
         className="
           absolute inset-0 bg-cyan-400/20 opacity-0 blur-xl
@@ -79,13 +82,16 @@ function FeatureCard({ title, icon, description, wrapperClass }) {
           group-active:opacity-100
           group-focus:opacity-100
         "
+        aria-hidden="true"
       />
+
       <div className="relative mb-4">
         <div className="flex h-16 w-16 p-4 items-center justify-center rounded-full bg-[#FBF705] text-black font-semibold text-lg">
-          <img src={icon} />
+          <img src={icon} alt="" />
         </div>
         <h3 className="text-xl md:text-2xl font-semibold mt-4">{title}</h3>
       </div>
+
       <p className="relative text-xl text-center md:text-left text-gray-100 leading-relaxed">
         {description}
       </p>
@@ -111,7 +117,7 @@ export default function Aboutus() {
       className="
     relative w-full text-white
     px-4 md:px-8 lg:px-16
-    pt-24 md:pt-32
+    pt-24 md:pt-24
     pb-20 md:pb-28
 
     bg-[url('/images/About-mobile.png')]
@@ -121,17 +127,16 @@ export default function Aboutus() {
     bg-contain md:bg-cover
   "
     >
-      <div className="max-w-6xl mx-auto md:py-24">
+      <div className="mx-auto md:py-24">
         {/* TOP: Insight That Matters */}
         <div className="text-center space-y-3">
           <p
-            className={`${manrope.className} text-3xl md:text-6xl text-gray-200`}
+            className={`${manrope.className} mb-3 text-3xl md:text-6xl text-gray-200`}
           >
             Insight That Matters
           </p>
         </div>
 
-        {/* ---- MOBILE: CAROUSEL VIEW ---- */}
         {/* ---- MOBILE: CAROUSEL VIEW ---- */}
         <div className="mt-10 md:hidden relative">
           {/* Active card – full width */}
@@ -151,6 +156,7 @@ export default function Aboutus() {
       text-sm font-semibold
       active:scale-95
     "
+            aria-label="Previous feature"
           >
             ‹
           </button>
@@ -167,6 +173,7 @@ export default function Aboutus() {
       text-sm font-semibold
       active:scale-95
     "
+            aria-label="Next feature"
           >
             ›
           </button>
@@ -182,6 +189,7 @@ export default function Aboutus() {
                 h-2 w-2 rounded-full
                 ${idx === activeIndex ? "bg-yellow-400 w-4" : "bg-white/40"}
               `}
+              aria-label={`Show feature ${idx + 1}`}
             />
           ))}
         </div>
@@ -239,9 +247,7 @@ export default function Aboutus() {
                   "
                 >
                   <div className="space-y-3">
-                    <h3
-                      className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}
-                    >
+                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-[#FBF705]`}>
                       Our Vision
                     </h3>
                     <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">
@@ -268,9 +274,7 @@ export default function Aboutus() {
                   "
                 >
                   <div className="space-y-3">
-                    <h3
-                      className={`${dm.className} text-2xl md:text-[70px] text-yellow-300`}
-                    >
+                    <h3 className={`${dm.className} text-2xl md:text-[70px] text-[#FBF705]`}>
                       Our Mission
                     </h3>
                     <p className="text-xs sm:text-sm md:text-[23px] text-gray-100 leading-relaxed">

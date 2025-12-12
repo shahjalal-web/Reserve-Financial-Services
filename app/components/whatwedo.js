@@ -30,7 +30,7 @@ export default function WhatWeDo() {
         {/* Our Values */}
         <div>
           <h2 className={`${manrope.className} text-center text-[50px] md:text-[96px] font-semibold`}>
-            Our <span className="text-yellow-400">Values</span>
+            Our <span className="text-[#FBF705]">Values</span>
           </h2>
 
           {/* value cards */}
@@ -65,7 +65,7 @@ export default function WhatWeDo() {
         {/* What we do – redesigned to match image */}
         <div className="space-y-12 md:space-y-16">
           <h2 className={`${manrope.className} text-center text-4xl md:text-5xl lg:text-[70px] font-semibold leading-tight`}>
-            What <span className="text-yellow-400">we do</span>
+            What <span className="text-[#FBF705]">we do</span>
           </h2>
 
           <div className="flex flex-col md:flex-row items-center md:items-stretch">
@@ -151,7 +151,7 @@ function ValueCard({ title, number, text }) {
 function WhatItem({ title, text }) {
   return (
     <div className="space-y-2">
-      <h3 className={`${manrope.className} text-xl md:text-[30px] font-semibold text-yellow-300`}>
+      <h3 className={`${manrope.className} text-xl md:text-[30px] font-semibold text-[#FBF705]`}>
         {title}
       </h3>
       <p className={`${manrope.className} text-md md:text-[20px] text-gray-100 leading-relaxed max-w-md`}>
