@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { DM_Sans, Manrope } from "next/font/google";
+import Image from "next/image";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -11,45 +12,46 @@ const manrope = Manrope({
 });
 
 const COUNTRIES = [
-  { name: "Afghanistan", dialCode: "+93", flag: "🇦🇫" },
-  { name: "Albania", dialCode: "+355", flag: "🇦🇱" },
-  { name: "Algeria", dialCode: "+213", flag: "🇩🇿" },
-  { name: "Andorra", dialCode: "+376", flag: "🇦🇩" },
-  { name: "Angola", dialCode: "+244", flag: "🇦🇴" },
-  { name: "Argentina", dialCode: "+54", flag: "🇦🇷" },
-  { name: "Armenia", dialCode: "+374", flag: "🇦🇲" },
-  { name: "Australia", dialCode: "+61", flag: "🇦🇺" },
-  { name: "Austria", dialCode: "+43", flag: "🇦🇹" },
-  { name: "Azerbaijan", dialCode: "+994", flag: "🇦🇿" },
-  { name: "Bahamas", dialCode: "+1-242", flag: "🇧🇸" },
-  { name: "Bahrain", dialCode: "+973", flag: "🇧🇭" },
-  { name: "Bangladesh", dialCode: "+880", flag: "🇧🇩" },
-  { name: "Belgium", dialCode: "+32", flag: "🇧🇪" },
-  { name: "Brazil", dialCode: "+55", flag: "🇧🇷" },
-  { name: "Canada", dialCode: "+1", flag: "🇨🇦" },
-  { name: "China", dialCode: "+86", flag: "🇨🇳" },
-  { name: "France", dialCode: "+33", flag: "🇫🇷" },
-  { name: "Germany", dialCode: "+49", flag: "🇩🇪" },
-  { name: "India", dialCode: "+91", flag: "🇮🇳" },
-  { name: "Italy", dialCode: "+39", flag: "🇮🇹" },
-  { name: "Japan", dialCode: "+81", flag: "🇯🇵" },
-  { name: "Malaysia", dialCode: "+60", flag: "🇲🇾" },
-  { name: "Nepal", dialCode: "+977", flag: "🇳🇵" },
-  { name: "Netherlands", dialCode: "+31", flag: "🇳🇱" },
-  { name: "Pakistan", dialCode: "+92", flag: "🇵🇰" },
-  { name: "Saudi Arabia", dialCode: "+966", flag: "🇸🇦" },
-  { name: "Singapore", dialCode: "+65", flag: "🇸🇬" },
-  { name: "South Korea", dialCode: "+82", flag: "🇰🇷" },
-  { name: "Spain", dialCode: "+34", flag: "🇪🇸" },
-  { name: "Sri Lanka", dialCode: "+94", flag: "🇱🇰" },
-  { name: "Sweden", dialCode: "+46", flag: "🇸🇪" },
-  { name: "Switzerland", dialCode: "+41", flag: "🇨🇭" },
-  { name: "Thailand", dialCode: "+66", flag: "🇹🇭" },
-  { name: "Turkey", dialCode: "+90", flag: "🇹🇷" },
-  { name: "United Arab Emirates", dialCode: "+971", flag: "🇦🇪" },
-  { name: "United Kingdom", dialCode: "+44", flag: "🇬🇧" },
-  { name: "United States", dialCode: "+1", flag: "🇺🇸" },
+  { name: "Afghanistan", dialCode: "+93", code: "af" },
+  { name: "Albania", dialCode: "+355", code: "al" },
+  { name: "Algeria", dialCode: "+213", code: "dz" },
+  { name: "Andorra", dialCode: "+376", code: "ad" },
+  { name: "Angola", dialCode: "+244", code: "ao" },
+  { name: "Argentina", dialCode: "+54", code: "ar" },
+  { name: "Armenia", dialCode: "+374", code: "am" },
+  { name: "Australia", dialCode: "+61", code: "au" },
+  { name: "Austria", dialCode: "+43", code: "at" },
+  { name: "Azerbaijan", dialCode: "+994", code: "az" },
+  { name: "Bahamas", dialCode: "+1-242", code: "bs" },
+  { name: "Bahrain", dialCode: "+973", code: "bh" },
+  { name: "Bangladesh", dialCode: "+880", code: "bd" },
+  { name: "Belgium", dialCode: "+32", code: "be" },
+  { name: "Brazil", dialCode: "+55", code: "br" },
+  { name: "Canada", dialCode: "+1", code: "ca" },
+  { name: "China", dialCode: "+86", code: "cn" },
+  { name: "France", dialCode: "+33", code: "fr" },
+  { name: "Germany", dialCode: "+49", code: "de" },
+  { name: "India", dialCode: "+91", code: "in" },
+  { name: "Italy", dialCode: "+39", code: "it" },
+  { name: "Japan", dialCode: "+81", code: "jp" },
+  { name: "Malaysia", dialCode: "+60", code: "my" },
+  { name: "Nepal", dialCode: "+977", code: "np" },
+  { name: "Netherlands", dialCode: "+31", code: "nl" },
+  { name: "Pakistan", dialCode: "+92", code: "pk" },
+  { name: "Saudi Arabia", dialCode: "+966", code: "sa" },
+  { name: "Singapore", dialCode: "+65", code: "sg" },
+  { name: "South Korea", dialCode: "+82", code: "kr" },
+  { name: "Spain", dialCode: "+34", code: "es" },
+  { name: "Sri Lanka", dialCode: "+94", code: "lk" },
+  { name: "Sweden", dialCode: "+46", code: "se" },
+  { name: "Switzerland", dialCode: "+41", code: "ch" },
+  { name: "Thailand", dialCode: "+66", code: "th" },
+  { name: "Turkey", dialCode: "+90", code: "tr" },
+  { name: "United Arab Emirates", dialCode: "+971", code: "ae" },
+  { name: "United Kingdom", dialCode: "+44", code: "gb" },
+  { name: "United States", dialCode: "+1", code: "us" },
 ];
+
 
 export default function ContactForm() {
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
@@ -192,22 +194,20 @@ export default function ContactForm() {
           {/* PHONE + COUNTRY SELECT */}
           <FieldWrapper>
             <div className="flex items-center gap-2 bg-black/40 border border-white/20 rounded-md px-2 py-2">
+              {/* COUNTRY SELECTOR */}
               <div className="relative" ref={dropdownRef}>
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
                   className="flex items-center gap-2 px-2 py-1 rounded-md bg-black/40 border border-white/20 text-sm"
                 >
-                  <span
-                    className="text-lg"
-                    style={{
-                      fontFamily:
-                        '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif',
-                    }}
-                  >
-                    {selectedCountry.flag}
-                  </span>
-
+                  <Image
+                    src={`/flags/${selectedCountry.code}.svg`}
+                    alt={selectedCountry.name}
+                    width={20}
+                    height={14}
+                    className="rounded-sm object-cover"
+                  />
                   <span className="text-sm text-gray-100">
                     {selectedCountry.dialCode}
                   </span>
@@ -216,17 +216,25 @@ export default function ContactForm() {
 
                 {isOpen && (
                   <div className="absolute z-30 mt-2 w-64 rounded-lg bg-black/90 border border-white/15 shadow-xl">
+                    {/* SEARCH FIELD */}
                     <div className="p-2 border-b border-white/10">
                       <input
                         type="text"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Search country or code"
-                        className="w-full bg-black/60 border border-white/15 rounded-md px-2 py-1.5 text-xs text-gray-100"
+                        className="w-full bg-black/60 border border-white/15 rounded-md px-2 py-1.5 text-xs text-gray-100 focus:outline-none"
                       />
                     </div>
 
+                    {/* COUNTRY LIST */}
                     <div className="max-h-60 overflow-y-auto">
+                      {filteredCountries.length === 0 && (
+                        <div className="px-3 py-2 text-xs text-gray-400">
+                          No matches
+                        </div>
+                      )}
+
                       {filteredCountries.map((country) => (
                         <button
                           key={country.name}
@@ -234,19 +242,17 @@ export default function ContactForm() {
                           onClick={() => {
                             setSelectedCountry(country);
                             setIsOpen(false);
+                            setSearchTerm("");
                           }}
                           className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-yellow-400/10"
                         >
-                          <span
-                            className="text-lg"
-                            style={{
-                              fontFamily:
-                                '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif',
-                            }}
-                          >
-                            {country.flag}
-                          </span>
-
+                          <Image
+                            src={`/flags/${country.code}.svg`}
+                            alt={country.name}
+                            width={20}
+                            height={14}
+                            className="rounded-sm object-cover"
+                          />
                           <span className="flex-1 text-gray-100">
                             {country.name}
                           </span>
@@ -260,11 +266,12 @@ export default function ContactForm() {
                 )}
               </div>
 
+              {/* PHONE NUMBER */}
               <input
                 type="tel"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="flex-1 bg-transparent text-sm px-2 py-1.5 placeholder:text-white"
+                className="flex-1 bg-transparent text-sm px-2 py-1.5 placeholder:text-white focus:outline-none"
                 placeholder="Phone Number"
               />
             </div>
