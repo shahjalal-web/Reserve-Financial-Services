@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { DM_Sans, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import Image from "next/image";
 
 const manrope = Manrope({

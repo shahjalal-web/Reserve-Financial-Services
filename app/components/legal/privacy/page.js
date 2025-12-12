@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
       />
 
       {/* soft dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#02000E]/30 to-[#02000E]" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#02000E]/30 to-[#02000E]" />
 
       {/* ---------------- CONTENT ---------------- */}
       <div className="relative z-10 mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
