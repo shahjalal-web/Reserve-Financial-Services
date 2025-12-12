@@ -266,7 +266,7 @@ export default function Aboutus() {
   "
               >
                 <h3
-                  className={`${dm.className} text-2xl md:text-[65px] text-[#FBF705]`}
+                  className={`${dm.className} text-xl md:text-[65px] text-[#FBF705]`}
                 >
                   Our Mission
                 </h3>
