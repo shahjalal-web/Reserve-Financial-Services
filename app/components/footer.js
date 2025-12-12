@@ -37,7 +37,7 @@ export default function Footer() {
             {/* Logo */}
             <div className="flex items-start">
               <img
-                src="/images/logo.svg"
+                src="/images/Logo.svg"
                 alt="Reserve Financial Services"
                 className="h-12 md:h-14 w-auto"
               />
