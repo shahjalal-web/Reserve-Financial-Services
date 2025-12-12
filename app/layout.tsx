@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`}>
-        <div className="bg-black">
+        <div className=" bg-black">
           <Navbar />
           {children}
           <Footer />

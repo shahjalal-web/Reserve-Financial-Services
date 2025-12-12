@@ -52,7 +52,6 @@ const COUNTRIES = [
   { name: "United States", dialCode: "+1", code: "us" },
 ];
 
-
 export default function ContactForm() {
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
   const [isOpen, setIsOpen] = useState(false);
@@ -151,7 +150,7 @@ export default function ContactForm() {
                 }
                 className={`w-full bg-black/40 border ${
                   errors.firstName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 md:py-4 md:text-2xl py-2 text-xl placeholder:text-white`}
+                } rounded-md px-3 md:py-3 md:text-xl py-2 text-md placeholder:text-white`}
                 placeholder="First Name"
               />
               {errors.firstName && (
@@ -166,7 +165,7 @@ export default function ContactForm() {
                 onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                 className={`w-full bg-black/40 border ${
                   errors.lastName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 md:py-4 md:text-2xl py-2 text-xl placeholder:text-white`}
+                } rounded-md px-3 md:py-3 md:text-xl py-2 text-md placeholder:text-white`}
                 placeholder="Last Name"
               />
               {errors.lastName && (
@@ -183,7 +182,7 @@ export default function ContactForm() {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className={`w-full bg-black/40 border ${
                 errors.email ? "border-red-400" : "border-white/20"
-              } rounded-md px-3 md:py-4 md:text-2xl py-2 text-xl placeholder:text-white`}
+              } rounded-md px-3 md:py-3 md:text-xl py-2 text-md placeholder:text-white`}
               placeholder="Email Address"
             />
             {errors.email && (
@@ -215,7 +214,7 @@ export default function ContactForm() {
                 </button>
 
                 {isOpen && (
-                  <div className="absolute z-30 mt-2 w-64 rounded-lg bg-black/90 border border-white/15 shadow-xl">
+                  <div className="absolute z-30 mt-2 w-64 rounded-lg bg-black/50 border border-white/15 shadow-xl">
                     {/* SEARCH FIELD */}
                     <div className="p-2 border-b border-white/10">
                       <input
@@ -228,7 +227,7 @@ export default function ContactForm() {
                     </div>
 
                     {/* COUNTRY LIST */}
-                    <div className="max-h-60 overflow-y-auto">
+                    <div className="max-h-60 overflow-y-auto country-scroll">
                       {filteredCountries.length === 0 && (
                         <div className="px-3 py-2 text-xs text-gray-400">
                           No matches
@@ -244,7 +243,7 @@ export default function ContactForm() {
                             setIsOpen(false);
                             setSearchTerm("");
                           }}
-                          className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-yellow-400/10"
+                          className="w-full flex items-center gap-2 px-3 py-2 text-sm"
                         >
                           <Image
                             src={`/flags/${country.code}.svg`}
@@ -271,7 +270,7 @@ export default function ContactForm() {
                 type="tel"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="flex-1 bg-transparent px-2 md:py-4 md:text-2xl py-2 text-xl placeholder:text-white focus:outline-none"
+                className="flex-1 bg-transparent px-2 md:py-3 md:text-xl py-2 text-md placeholder:text-white focus:outline-none"
                 placeholder="Phone Number"
               />
             </div>
@@ -288,7 +287,7 @@ export default function ContactForm() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className={`w-full bg-black/40 border ${
                 errors.message ? "border-red-400" : "border-cyan-400/60"
-              } rounded-md px-3 md:py-4 md:text-2xl py-2 text-xl resize-none placeholder:text-white`}
+              } rounded-md px-3 md:py-3 md:text-xl py-2 text-md resize-none placeholder:text-white`}
               placeholder="Write your message..."
             />
             {errors.message && (
@@ -317,12 +316,14 @@ export default function ContactForm() {
             </div>
           )}
 
-          <button
-            type="submit"
-            className="w-full sm:w-auto px-12 py-3 rounded-md bg-yellow-400 text-black font-semibold text-sm hover:bg-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.6)]"
-          >
-            Submit
-          </button>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="w-[400px] px-12 py-3 rounded-md bg-[#FBF705] text-black font-semibold text-sm hover:bg-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.6)]"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </section>

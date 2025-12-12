@@ -1,9 +1,22 @@
 // components/Navbar.js
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { DM_Sans, Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"],
+  display: "swap",
+});
+
+const dm = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500"],
+  display: "swap",
+});
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,7 +81,7 @@ export default function Navbar() {
   return (
     <>
       {/* ⚠️ গুরুত্বপূর্ণ: এই outermost div-এ w-full নিশ্চিত করা হয়েছে */}
-      <div className="w-full"> 
+      <div className="w-full">
         {/* NAVBAR */}
         <nav
           className={`
@@ -82,7 +95,6 @@ export default function Navbar() {
         >
           {/* MAX WIDTH WRAPPER */}
           <div className="max-w-[1500px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-16 py-4 lg:pt-12 lg:pb-3">
-            {/* Logo (অপরিবর্তিত) */}
             <Link href="/" className="inline-block">
               <Image
                 src="/images/Logo.svg"
@@ -90,6 +102,7 @@ export default function Navbar() {
                 width={160}
                 height={50}
                 priority
+                className="w-28 md:w-40" // mobile = 112px, desktop = 160px
               />
             </Link>
 
@@ -100,7 +113,9 @@ export default function Navbar() {
                   <Link
                     href={`#${item.id}`}
                     onClick={(e) => handleNavClick(item.id, e)}
-                    className={`text-[18px] transition-all duration-300 ${
+                    className={`${
+                      dm.className
+                    } text-[30px] transition-all duration-300 ${
                       activeLink === item.id
                         ? "text-[#FBF705] font-semibold"
                         : "text-white hover:text-[#FBF705]"

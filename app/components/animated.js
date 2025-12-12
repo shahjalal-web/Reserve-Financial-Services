@@ -13,11 +13,21 @@ export default function ResponsiveImageSection() {
       className="
         relative w-full flex flex-col items-center
         py-16 md:py-24
-        bg-[url('/images/bg-howwework-png.png')]
+        bg-[url('/images/data-workflow.png')]
         bg-top bg-cover bg-no-repeat
-        text-white  max-w-[1500px] mx-auto
+        text-white max-w-[1500px] mx-auto
+        overflow-hidden
       "
     >
+      {/* TOP SHADOW — smooth blend with previous section */}
+      <div
+        className="
+          pointer-events-none absolute top-0 left-0 right-0 
+          h-16 bg-linear-to-b 
+          from-black/80 via-black/40 to-transparent
+        "
+      />
+
       {/* Title */}
       <h2
         className={`
@@ -32,14 +42,32 @@ export default function ResponsiveImageSection() {
         <span className="text-[#FBF705]"> Decisions</span>
       </h2>
 
-      {/* Image wrapper */}
-      <div className="w-full max-w-6xl mt-10 md:mt-14">
+      {/* Desktop Image */}
+      <div className="w-full max-w-6xl mt-10 md:mt-14 hidden md:block p-4">
         <img
           src="/images/Workflow-Desktop.png"
-          alt="Process Visualization"
+          alt="Process Visualization Desktop"
           className="w-full h-auto object-contain"
         />
       </div>
+
+      {/* Mobile Image */}
+      <div className="w-full max-w-6xl mt-10 md:mt-14 block md:hidden p-4">
+        <img
+          src="/images/Mobile-workflow.svg"
+          alt="Process Visualization Mobile"
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
+      {/* BOTTOM SHADOW — smooth blend with next section */}
+      <div
+        className="
+          pointer-events-none absolute bottom-0 left-0 right-0 
+          h-20 bg-linear-to-t 
+          from-black/80 via-black/40 to-transparent
+        "
+      />
     </section>
   );
 }

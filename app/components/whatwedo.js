@@ -4,13 +4,13 @@ import { DM_Sans, Manrope } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["500"], // choose what you need
+  weight: ["500"],
   display: "swap",
 });
 
 const dm = DM_Sans({
   subsets: ["latin"],
-  weight: ["500"], // choose what you need
+  weight: ["100", "200", "500"],
   display: "swap",
 });
 
@@ -23,37 +23,34 @@ export default function WhatWeDo() {
         px-4 md:px-8 lg:px-16
         md:py-24
         bg-[url('/images/bg-whatwedo-png.png')]
-        bg-top bg-no-repeat bg-cover  max-w-[1500px] mx-auto
+        bg-top bg-no-repeat bg-cover max-w-[1500px] mx-auto
       "
     >
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Our Values */}
         <div>
-          <h2 className={`${manrope.className} text-center text-[50px] md:text-[96px] font-semibold`}>
+          <h2
+            className={`${manrope.className} text-center text-[50px] md:text-[96px] font-semibold`}
+          >
             Our <span className="text-[#FBF705]">Values</span>
           </h2>
 
-          {/* value cards */}
           <div className="mt-10 grid gap-6 md:grid-cols-2 mx-auto">
-            {/* Integrity */}
             <ValueCard
               title="Integrity"
               number="01"
               text="We operate with honesty and clarity, ensuring all trading decisions are guided by ethical practices and full accountability."
             />
-            {/* Innovation */}
             <ValueCard
               title="Innovation"
               number="02"
               text="We develop in-house tools and technology, using creative solutions to enhance analysis, research, and internal trading decisions."
             />
-            {/* Discipline */}
             <ValueCard
               title="Discipline"
               number="03"
               text="Every trade is guided by structured processes, risk management, and rigorous research to maintain focus and precision in our operations."
             />
-            {/* Objectivity */}
             <ValueCard
               title="Objectivity"
               number="04"
@@ -62,16 +59,19 @@ export default function WhatWeDo() {
           </div>
         </div>
 
-        {/* What we do – redesigned to match image */}
+        {/* What we do – responsive: IMAGE on top for mobile+tablet, two-column only on lg+ */}
         <div className="space-y-12 md:space-y-16">
-          <h2 className={`${manrope.className} text-center text-4xl md:text-5xl lg:text-[70px] font-semibold leading-tight`}>
+          <h2
+            className={`${manrope.className} text-center text-4xl md:text-5xl lg:text-[70px] font-semibold leading-tight`}
+          >
             What <span className="text-[#FBF705]">we do</span>
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center md:items-stretch">
-            {/* globe / illustration */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-              <div className="relative ">
+          {/* Use column layout only at large screens */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-6">
+            {/* globe / illustration (top on mobile/tablet; left on lg+) */}
+            <div className="w-full lg:w-1/2 flex justify-center items-center lg:justify-start">
+              <div className="relative w-full max-w-[700px]">
                 <Image
                   src="/images/earth_image.png"
                   alt="Global trading illustration"
@@ -82,24 +82,38 @@ export default function WhatWeDo() {
               </div>
             </div>
 
-            {/* text list */}
-            <div className="w-full md:w-1/2 space-y-6 md:space-y-8 p-6">
-              <WhatItem
-                title="Research for Resilience"
-                text="Our research focuses entirely on enhancing internal strategies, helping us respond effectively to changing market conditions."
-              />
-              <WhatItem
-                title="Developing Financial Analytics"
-                text="We build in-house platforms that integrate market data, news, sentiment, and internal signals to support informed decision-making."
-              />
-              <WhatItem
-                title="Trading with Our Own Capital"
-                text="All trading activity is funded solely by the company. We do not handle external funds, manage client accounts, or provide investment services."
-              />
+            {/* TEXT: show as single-column block on mobile/tablet; on lg show as right column */}
+            <div className="w-full lg:w-1/2 p-4 lg:p-6">
+              {/* desktop/tablet: keep same items for all sizes but styling slightly adjusts */}
+              <div className="space-y-6 md:space-y-8">
+                <WhatItem
+                  title="Research for Resilience"
+                  text="Our research focuses entirely on enhancing internal strategies, helping us respond effectively to changing market conditions."
+                />
+                <WhatItem
+                  title="Developing Financial Analytics"
+                  text="We build in-house platforms that integrate market data, news, sentiment, and internal signals to support informed decision-making."
+                />
+                <WhatItem
+                  title="Trading with Our Own Capital"
+                  text="All trading activity is funded solely by the company. We do not handle external funds, manage client accounts, or provide investment services."
+                />
+              </div>
             </div>
           </div>
+
+          {/* Optional: if you still prefer a special boxed card on small screens you can keep this,
+              but per your request we keep same design — so no extra image and text sits below image. */}
         </div>
       </div>
+       {/* BOTTOM SHADOW — smooth blend with next section */}
+      <div
+        className="
+          pointer-events-none absolute bottom-0 left-0 right-0 
+          h-20 bg-linear-to-t 
+          from-black/80 via-black/40 to-transparent
+        "
+      />
     </section>
   );
 }
@@ -111,21 +125,18 @@ function ValueCard({ title, number, text }) {
     <div
       className="
         group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 
-        backdrop-blur-sm p-6 md:py-7 md:px-14 shadow-lg transition-all duration-300 
+        backdrop-blur-sm p-3 md:py-7 md:px-14 shadow-lg transition-all duration-300 
         hover:-translate-y-2 active:-translate-y-2 focus:-translate-y-2
         hover:shadow-[0_0_35px_rgba(250,204,21,0.4)]
         active:shadow-[0_0_35px_rgba(250,204,21,0.4)]
         focus:shadow-[0_0_35px_rgba(250,204,21,0.4)]
       "
-      tabIndex={0}   // IMPORTANT for mobile focus
+      tabIndex={0}
     >
-      {/* yellow glow */}
       <div
         className="
           pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500
-          group-hover:opacity-100 
-          group-active:opacity-100 
-          group-focus:opacity-100
+          group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100
         "
       >
         <div className="absolute inset-0 flex items-center justify-center">
@@ -141,22 +152,17 @@ function ValueCard({ title, number, text }) {
             {text}
           </p>
         </div>
-        <span className="text-2xl text-gray-200/80 font-medium">{number}</span>
+        <span className={`${dm.className} text-[48px] text-gray-200/80 font-thin`}>{number}</span>
       </div>
     </div>
   );
 }
 
-
 function WhatItem({ title, text }) {
   return (
     <div className="space-y-2">
-      <h3 className={`${manrope.className} text-xl md:text-[30px] font-semibold text-[#FBF705]`}>
-        {title}
-      </h3>
-      <p className={`${manrope.className} text-md md:text-[20px] text-gray-100 leading-relaxed max-w-md`}>
-        {text}
-      </p>
+      <h3 className={`${manrope.className} text-xl md:text-[30px] font-semibold text-[#FBF705]`}>{title}</h3>
+      <p className={`${manrope.className} text-md md:text-[20px] text-gray-100 leading-relaxed`}>{text}</p>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className={`${manrope.className} relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/bg-hero.png')] bg-top bg-no-repeat bg-cover  max-w-[1500px] mx-auto
+      className={`${manrope.className} relative w-full flex items-center justify-center px-4 md:py-[300px] py-4 bg-[url('/images/bg-hero.png')] bg-top bg-no-repeat bg-cover max-w-[1500px] mx-auto
       `}
     >
       <div className="relative text-center space-y-6 max-w-[1200px] mx-auto">

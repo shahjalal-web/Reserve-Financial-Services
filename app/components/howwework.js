@@ -79,58 +79,57 @@ function WorkCard({ title, text, image }) {
     <div
       tabIndex={0}
       className="
-        group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10
+        group relative overflow-hidden rounded-3xl
+        bg-white/5 border border-white/10
         backdrop-blur-sm shadow-lg transition-all duration-300
-        hover:-translate-y-2 active:-translate-y-2 focus:-translate-y-2
-        hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]
-        active:shadow-[0_0_30px_rgba(56,189,248,0.45)]
-        focus:shadow-[0_0_30px_rgba(56,189,248,0.45)] 
+        hover:bg-transparent hover:border-transparent
+        active:bg-transparent active:border-transparent
+        focus:bg-transparent focus:border-transparent
       "
     >
-      {/* blue glow on hover / active / focus */}
+      {/* BLUE LIGHT / GLOW layer — appears on hover behind content */}
       <div
         aria-hidden="true"
         className="
-          pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500
+          pointer-events-none absolute inset-0
+          opacity-0 transition-opacity duration-500
           group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100
+          -z-10
         "
       >
-        <div className="absolute inset-0 bg-cyan-500/15 blur-2xl" />
+        {/* gradient + radial highlight — tweak sizes/opacity as needed */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/40 via-[#0099FF]/30 to-[#00D4FF]/20 blur-3xl" />
+        {/* central brighter radial to create a 'light' */}
+        <div className="absolute left-1/2 top-1/3 w-[420px] h-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00E5FF]/25 blur-2xl" />
       </div>
 
-      {/* content wrapper with equal padding */}
+      {/* content wrapper (stays visible above glow) */}
       <div className="relative flex flex-col h-full px-6 pt-5 pb-6">
         {/* Text */}
         <div>
-          <h3
-            className={`${dm.className} text-lg md:text-[28px] text-yellow-300`}
-          >
-            {title}
-          </h3>
-          <p
-            className={`${dm.className} mt-2 text-md md:text-[20px] text-gray-100 leading-relaxed`}
-          >
+          <h3 className="text-lg md:text-[28px] text-yellow-300">{title}</h3>
+          <p className="mt-2 text-md md:text-[20px] text-gray-100 leading-relaxed">
             {text}
           </p>
         </div>
 
-        {/* Image container with SAME side padding */}
+        {/* Image */}
         <div className="relative w-full mt-3 h-64 sm:h-48 md:h-72 overflow-hidden rounded-2xl">
           <Image
             src={image}
             alt={title}
             fill
             className="
-            object-cover transition-transform duration-500
-            group-hover:scale-105 group-active:scale-105 group-focus:scale-105
-          "
+              object-cover transition-transform duration-500
+              group-hover:scale-105 group-active:scale-105 group-focus:scale-105
+            "
             sizes="100vw"
           />
-
-          {/* Top gradient fade */}
-          <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-black/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/40 to-transparent" />
         </div>
       </div>
     </div>
   );
 }
+
+
