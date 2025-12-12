@@ -120,7 +120,7 @@ export default function ContactForm() {
   return (
     <section
       id="contactform"
-      className="relative w-full text-white px-4 md:px-8 lg:px-16 py-20 md:py-24 bg-[url('/images/bg-form-png.png')] bg-top bg-cover bg-no-repeat"
+      className="relative w-full text-white px-4 md:px-8 lg:px-16 py-20 md:py-48 bg-[url('/images/bg-form.png')] bg-top bg-cover bg-no-repeat"
     >
       {/* Emoji font fix */}
       <style jsx global>{`
@@ -139,7 +139,7 @@ export default function ContactForm() {
           </h2>
         </div>
 
-        <form className="space-y-5" onSubmit={handleSubmit}>
+        <form className="space-y-9" onSubmit={handleSubmit}>
           {/* FIRST & LAST NAME */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FieldWrapper>
@@ -151,7 +151,7 @@ export default function ContactForm() {
                 }
                 className={`w-full bg-black/40 border ${
                   errors.firstName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 py-3 text-sm placeholder:text-white`}
+                } rounded-md px-3 py-4 text-2xl placeholder:text-white`}
                 placeholder="First Name"
               />
               {errors.firstName && (
@@ -166,7 +166,7 @@ export default function ContactForm() {
                 onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                 className={`w-full bg-black/40 border ${
                   errors.lastName ? "border-red-400" : "border-white/20"
-                } rounded-md px-3 py-3 text-sm placeholder:text-white`}
+                } rounded-md px-3 py-4 text-2xl placeholder:text-white`}
                 placeholder="Last Name"
               />
               {errors.lastName && (
@@ -183,7 +183,7 @@ export default function ContactForm() {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className={`w-full bg-black/40 border ${
                 errors.email ? "border-red-400" : "border-white/20"
-              } rounded-md px-3 py-3 text-sm placeholder:text-white`}
+              } rounded-md px-3 py-4 text-2xl placeholder:text-white`}
               placeholder="Email Address"
             />
             {errors.email && (
@@ -271,7 +271,7 @@ export default function ContactForm() {
                 type="tel"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="flex-1 bg-transparent text-sm px-2 py-1.5 placeholder:text-white focus:outline-none"
+                className="flex-1 bg-transparent px-2 py-4 text-2xl placeholder:text-white focus:outline-none"
                 placeholder="Phone Number"
               />
             </div>
@@ -288,7 +288,7 @@ export default function ContactForm() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className={`w-full bg-black/40 border ${
                 errors.message ? "border-red-400" : "border-cyan-400/60"
-              } rounded-md px-3 py-3 text-sm resize-none placeholder:text-white`}
+              } rounded-md px-3 py-4 text-2xl resize-none placeholder:text-white`}
               placeholder="Write your message..."
             />
             {errors.message && (
