@@ -13,7 +13,7 @@ export default function ResponsiveImageSection() {
       className="
         relative w-full flex flex-col items-center
         py-16 md:py-24
-        bg-[url('/images/backgrounds/bg-howwework-png.png')]
+        bg-[url('/images/bg-howwework-png.png')]
         bg-top bg-cover bg-no-repeat
         text-white
       "

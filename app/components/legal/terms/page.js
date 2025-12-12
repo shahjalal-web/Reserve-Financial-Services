@@ -12,7 +12,7 @@ export default function TermsOfUse() {
     <main
       className="relative w-full min-h-screen text-white overflow-hidden"
       style={{
-        backgroundImage: "url('/images/backgrounds/bg-howwework-png.png')",
+        backgroundImage: "url('/images/bg-howwework-png.png')",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
